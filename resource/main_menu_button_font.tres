@@ -1,0 +1,6 @@
+[gd_resource type="SystemFont" format=3 uid="uid://bjm683dc1k61r"]
+
+[resource]
+font_names = PackedStringArray("Comic Sans")
+font_weight = 700
+oversampling = 3.0

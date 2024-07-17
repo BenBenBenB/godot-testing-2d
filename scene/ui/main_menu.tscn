@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://buon2mtc7x5m4"]
+
+[ext_resource type="Texture2D" uid="uid://c6krlrd2cb8sl" path="res://art/sprite/tilemap-backgrounds_packed.png" id="1_gpdyg"]
+[ext_resource type="Script" path="res://scene/ui/main_menu.gd" id="1_i3etc"]
+[ext_resource type="SystemFont" uid="uid://bjm683dc1k61r" path="res://resource/main_menu_button_font.tres" id="2_x8vjb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_few2i"]
+font = ExtResource("2_x8vjb")
+font_size = 38
+outline_size = 13
+outline_color = Color(1, 0.47451, 0, 0.643137)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i3etc")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gpdyg")
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BIG TIME PLATFORM MANIA 2D"
+label_settings = SubResource("LabelSettings_few2i")
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_x8vjb")
+theme_override_font_sizes/font_size = 24
+text = "Play Game"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_x8vjb")
+theme_override_font_sizes/font_size = 24
+text = "Settings
+"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_x8vjb")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
