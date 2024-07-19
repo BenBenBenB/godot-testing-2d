@@ -1,7 +1,6 @@
 name: godot-ci
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
 env:
   EXPORT_NAME: TestProject2dGodot
   GODOT_VERSION: 4.2.2
