@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8mnhunjymx56"]
+
+[ext_resource type="Texture2D" uid="uid://dueoobtmouswf" path="res://art/sprite/antimatter_particles.png" id="1_o4mia"]
+[ext_resource type="Script" path="res://scene/entity/test_player.gd" id="1_xlid6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1pb8"]
+radius = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c7m1d"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bnw7r"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -5.0
+tangential_accel_max = 5.0
+damping_min = 8.0
+damping_max = 10.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_xlid6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_u1pb8")
+one_way_collision_margin = 0.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_c7m1d")
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_bnw7r")
+texture = ExtResource("1_o4mia")
+lifetime = 4.0
+explosiveness = 0.05
+randomness = 0.2
+visibility_rect = Rect2(-39.971, -70.495, 123.329, 142.359)
+local_coords = true
