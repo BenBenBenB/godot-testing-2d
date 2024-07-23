@@ -1,7 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfcs3kncqu30y"]
+[gd_scene load_steps=3 format=3 uid="uid://cfcs3kncqu30y"]
 
 [ext_resource type="PackedScene" uid="uid://b8mnhunjymx56" path="res://scene/entity/test_player.tscn" id="1_8qquq"]
+[ext_resource type="PackedScene" uid="uid://bl58qj8u4w0qx" path="res://scene/entity/generic_food.tscn" id="2_1h083"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="anitmatter PC" parent="." instance=ExtResource("1_8qquq")]
+
+[node name="Generic food" parent="." instance=ExtResource("2_1h083")]
+position = Vector2(86, 27)
+
+[node name="Generic food2" parent="." instance=ExtResource("2_1h083")]
+position = Vector2(50, 10)
+
+[node name="Generic food3" parent="." instance=ExtResource("2_1h083")]
+position = Vector2(8, 38)
+
+[node name="Generic food4" parent="." instance=ExtResource("2_1h083")]
+position = Vector2(83, -15)

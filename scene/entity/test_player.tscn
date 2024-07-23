@@ -16,7 +16,7 @@ particles_anim_loop = false
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 8.0
+emission_sphere_radius = 10.0
 angle_min = -180.0
 angle_max = 180.0
 spread = 180.0
@@ -27,12 +27,13 @@ angular_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -5.0
 tangential_accel_max = 5.0
-damping_min = 8.0
-damping_max = 10.0
+damping_min = 2.0
+damping_max = 5.0
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
 script = ExtResource("1_xlid6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
