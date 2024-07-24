@@ -3,7 +3,7 @@ class_name PlayerIdle
 
 @export var walk_state: State
 
-@onready var animated_sprite_2d = $"../../AnimatedSprite2D"
+@onready var player_top_down = $"../.."
 
 var idle_timer: float
 
@@ -17,7 +17,7 @@ func update(delta: float):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if not input_dir.is_zero_approx():
 		Transitioned.emit(walk_state)
-	animated_sprite_2d.animation = "idle"
+	player_top_down.animated_sprite_2d.animation = "idle"
 	idle_timer += delta
 		
 

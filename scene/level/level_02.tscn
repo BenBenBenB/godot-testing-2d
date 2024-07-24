@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c54m08gugew1i"]
+[gd_scene load_steps=5 format=3 uid="uid://c54m08gugew1i"]
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
 [ext_resource type="PackedScene" uid="uid://0f4itcoh0tyx" path="res://scene/entity/player_top_down.tscn" id="2_gl44q"]
+[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/test_player.tscn" id="3_awf55"]
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="3_l51dj"]
 
 [node name="Level" type="Node"]
@@ -10,6 +11,8 @@ level_id = 2
 
 [node name="PlayerTopDown" parent="." instance=ExtResource("2_gl44q")]
 position = Vector2(150, 41)
+
+[node name="antimatter" parent="." instance=ExtResource("3_awf55")]
 
 [node name="Generic food" parent="." instance=ExtResource("3_l51dj")]
 position = Vector2(86, 27)

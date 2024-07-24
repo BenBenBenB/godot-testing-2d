@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bxylosxc2b4xd" path="res://art/temp/player_jump_1.png" id="4_j1n8h"]
 [ext_resource type="Texture2D" uid="uid://cggbh0qojkxpb" path="res://art/temp/player_dash_1.png" id="5_0e855"]
 [ext_resource type="Texture2D" uid="uid://d1vlwbljpa22b" path="res://art/temp/player_dash_2.png" id="6_v72dd"]
-[ext_resource type="Script" path="res://script/manager/state_machine.gd" id="8_t3sva"]
+[ext_resource type="Script" path="res://script/classes/state_machine.gd" id="8_t3sva"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8codi"]
 particles_animation = true

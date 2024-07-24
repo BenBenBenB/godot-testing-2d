@@ -1,9 +1,9 @@
 extends Node
 
-var levels : Array[LevelData]
+var levels: Array[LevelData]
 
-var main_scene : Node2D = null
-var loaded_level : Level = null
+var main_scene: Node2D = null
+var loaded_level: Level = null
 
 func unload_level() -> void:
 	if is_instance_valid(loaded_level):
@@ -11,9 +11,9 @@ func unload_level() -> void:
 		
 	loaded_level = null
 	
-func load_level(level_id:int) -> void:
+func load_level(level_id: int) -> void:
 	unload_level()
-	var level_data : LevelData = get_level_data(level_id)
+	var level_data: LevelData = get_level_data(level_id)
 	if not level_data:
 		return
 		
@@ -26,10 +26,8 @@ func load_level(level_id:int) -> void:
 	else:
 		print("level not found: %s" % [level_path])
 
-
 func get_level_data(id: int) -> LevelData:
-	var level_data : LevelData = null
-	for lvl : LevelData in levels:
+	for lvl: LevelData in levels:
 		if lvl.level_id == id:
 			return lvl
 	return null
