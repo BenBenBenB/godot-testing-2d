@@ -19,11 +19,11 @@ func _process(delta):
 func _physics_process(delta):
 	current_state.physics_update(delta)
 	
-func on_child_transitioned(calling_state: State, new_state_in: State) -> void:
+func on_child_transitioned(new_state_in: State) -> void:
 	var new_state = states.get(new_state_in.name.to_lower())
 	if new_state == null: 
 		push_warning("Called transition to a state that does not exist.")
-	if new_state != current_state:
+	elif new_state != current_state:
 		current_state.exit()
 		new_state.enter()
 		current_state = new_state

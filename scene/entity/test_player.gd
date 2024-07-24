@@ -1,10 +1,20 @@
 extends CharacterBody2D
 
+
 var speed : int = 100
+var size = 1.0
 
 func get_input():
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_dir * speed
+
+
+func eat_food(food_value: float):
+	size += food_value
+	$CollisionShape2D.scale = Vector2(size,size)
+
+func _process(_delta):
+	pass
 
 func _physics_process(delta):
 	get_input()
