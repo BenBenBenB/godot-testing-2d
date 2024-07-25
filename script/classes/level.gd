@@ -2,6 +2,7 @@ class_name Level
 extends Node
 
 @export var level_id: int
+@export var scroll_speed : int = 50
 
 var level_data: LevelData
 

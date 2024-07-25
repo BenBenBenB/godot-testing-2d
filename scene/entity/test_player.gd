@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: int = 100
+var speed: int = 125
 var size = 1.0
 @onready var size_text : Label = $"CanvasLayer/Size Label"
 
