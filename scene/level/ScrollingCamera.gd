@@ -1,13 +1,12 @@
 extends Camera2D
 
-var scroll_speed : int = 50
+@export var current_level : Level
+var scroll_speed : int
 #@export var player : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#need to figure out how to get the scroll speed from the level script
-	#scroll_speed = node
-	pass
+	scroll_speed = current_level.scroll_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

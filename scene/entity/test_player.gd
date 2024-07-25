@@ -1,10 +1,19 @@
 extends CharacterBody2D
 
+#level
+@export var current_level : Level
+var scroll_speed : int
+
+#self
 var speed: int = 125
 var size = 1.0
+
+#UI
 @onready var size_text : Label = $"CanvasLayer/Size Label"
 
 func _ready():
+	#get info from level and update the UI
+	scroll_speed = current_level.scroll_speed
 	updateUI()
 
 func get_input():
@@ -17,29 +26,14 @@ func consume_mass(food_value: float):
 	updateUI()
 
 func _process(_delta):
-	pass
+	# this makes the player move with the camera
+	# you will get stuck on obstacles if you try to move only backwards though somehow
+	position.x += scroll_speed * _delta
 
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	
-	#These are the 3 attributes I can access in code
-	#Seems impossible to access a lot of the specific attributes in the particle emitter
-	#If this is too jank to fix, we'll just scale the entire player up and call it a day
-	#if Input.is_key_pressed(KEY_C):
-		##print($CollisionShape2D.scale)
-		##print($GPUParticles2D.lifetime)
-		##print($GPUParticles2D.amount)
-		#$CollisionShape2D.scale.x += 1
-		#$CollisionShape2D.scale.y += 1
-		#$GPUParticles2D.lifetime += 1
-		#$GPUParticles2D.amount += 10
-	#
-	#if Input.is_key_pressed(KEY_X):
-		#$CollisionShape2D.scale.x -= 1
-		#$CollisionShape2D.scale.y -= 1
-		#$GPUParticles2D.lifetime -= 1
-		#$GPUParticles2D.amount -= 10
 
 func updateUI():
 	size_text.text = str("Size: ", size)
