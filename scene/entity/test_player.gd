@@ -6,7 +6,10 @@ var scroll_speed : int
 
 #self
 var speed: int = 125
-var size = 1.0
+var size : float = 10
+const max_size : float = 100
+const max_scale : float = 3.0
+const min_scale : float = 0.5
 
 #UI
 @onready var size_text : Label = $"CanvasLayer/Size Label"
@@ -14,6 +17,9 @@ var size = 1.0
 func _ready():
 	#get info from level and update the UI
 	scroll_speed = current_level.scroll_speed
+	#initialise player scale
+	var ratio : float = (size / max_size) * (max_scale - min_scale) + min_scale
+	scale = Vector2(ratio, ratio)
 	updateUI()
 
 func get_input():
@@ -22,7 +28,11 @@ func get_input():
 
 func consume_mass(food_value: float):
 	size += food_value
-	$CollisionShape2D.scale = Vector2(size, size)
+	if size < max_size:
+		var ratio : float = (size / max_size) * (max_scale - min_scale) + min_scale
+		scale = Vector2(ratio, ratio) 
+		#This is to prevent the player from growing too big physically and get stuck in the level
+		
 	updateUI()
 
 func _process(_delta):

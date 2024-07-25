@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var sprite_2d = $Sprite2D
-@export var mass: float = 50
+@export var mass: float = 2
 
 func _ready():
 	sprite_2d.frame = randi_range(0, 8)
