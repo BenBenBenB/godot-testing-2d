@@ -26,20 +26,20 @@ func _physics_process(_delta):
 	#These are the 3 attributes I can access in code
 	#Seems impossible to access a lot of the specific attributes in the particle emitter
 	#If this is too jank to fix, we'll just scale the entire player up and call it a day
-	if Input.is_key_pressed(KEY_C):
-		#print($CollisionShape2D.scale)
-		#print($GPUParticles2D.lifetime)
-		#print($GPUParticles2D.amount)
-		$CollisionShape2D.scale.x += 1
-		$CollisionShape2D.scale.y += 1
-		$GPUParticles2D.lifetime += 1
-		$GPUParticles2D.amount += 10
-	
-	if Input.is_key_pressed(KEY_X):
-		$CollisionShape2D.scale.x -= 1
-		$CollisionShape2D.scale.y -= 1
-		$GPUParticles2D.lifetime -= 1
-		$GPUParticles2D.amount -= 10
+	#if Input.is_key_pressed(KEY_C):
+		##print($CollisionShape2D.scale)
+		##print($GPUParticles2D.lifetime)
+		##print($GPUParticles2D.amount)
+		#$CollisionShape2D.scale.x += 1
+		#$CollisionShape2D.scale.y += 1
+		#$GPUParticles2D.lifetime += 1
+		#$GPUParticles2D.amount += 10
+	#
+	#if Input.is_key_pressed(KEY_X):
+		#$CollisionShape2D.scale.x -= 1
+		#$CollisionShape2D.scale.y -= 1
+		#$GPUParticles2D.lifetime -= 1
+		#$GPUParticles2D.amount -= 10
 
 func updateUI():
 	size_text.text = str("Size: ", size)
