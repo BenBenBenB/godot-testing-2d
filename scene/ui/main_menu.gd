@@ -1,6 +1,9 @@
 class_name MainMenu
 extends Control
 
+@onready var title_music = $TitleMusic
+
+
 func _ready():
 	pass
 
@@ -26,9 +29,11 @@ func deactivate() -> void:
 	set_process(false)
 	set_process_input(false)
 	set_process_unhandled_input(false)
+	title_music.stop();
 
 func activate() -> void:
 	show()
 	set_process(true)
 	set_process_input(true)
 	set_process_unhandled_input(true)
+	title_music.play();

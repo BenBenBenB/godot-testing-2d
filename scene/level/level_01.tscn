@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=11 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_8dvbu"]
-[ext_resource type="Texture2D" uid="uid://bxiada2mhi4sw" path="res://art/sprite/tilemap.png" id="2_pqvkx"]
-[ext_resource type="Texture2D" uid="uid://npd5qy1o14o4" path="res://art/sprite/tilemap-backgrounds.png" id="3_nqg50"]
+[ext_resource type="Texture2D" uid="uid://bxiada2mhi4sw" path="res://assets/sprite/tilemap.png" id="2_pqvkx"]
+[ext_resource type="Texture2D" uid="uid://npd5qy1o14o4" path="res://assets/sprite/tilemap-backgrounds.png" id="3_nqg50"]
 [ext_resource type="PackedScene" uid="uid://0f4itcoh0tyx" path="res://scene/entity/player_top_down.tscn" id="4_0bhsu"]
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="5_3os51"]
+[ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - blob music.mp3" id="6_elwpl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2po1w"]
 texture = ExtResource("2_pqvkx")
@@ -683,3 +684,6 @@ position = Vector2(265, -264)
 
 [node name="Generic food8" parent="." instance=ExtResource("5_3os51")]
 position = Vector2(89, -231)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_elwpl")

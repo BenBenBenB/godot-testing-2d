@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://buon2mtc7x5m4"]
+[gd_scene load_steps=6 format=3 uid="uid://buon2mtc7x5m4"]
 
-[ext_resource type="Texture2D" uid="uid://c6krlrd2cb8sl" path="res://art/sprite/tilemap-backgrounds_packed.png" id="1_gpdyg"]
+[ext_resource type="Texture2D" uid="uid://c6krlrd2cb8sl" path="res://assets/sprite/tilemap-backgrounds_packed.png" id="1_gpdyg"]
 [ext_resource type="Script" path="res://scene/ui/main_menu.gd" id="1_i3etc"]
 [ext_resource type="SystemFont" uid="uid://bjm683dc1k61r" path="res://resource/main_menu_button_font.tres" id="2_x8vjb"]
+[ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - mad scientist music.mp3" id="4_ov3on"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_few2i"]
 font = ExtResource("2_x8vjb")
@@ -84,6 +85,10 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_x8vjb")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ov3on")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton2" to="." method="_on_play_button_2_pressed"]

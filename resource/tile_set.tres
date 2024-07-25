@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b310s2lw1bi3x"]
 
-[ext_resource type="Texture2D" uid="uid://du21v34y0pk6h" path="res://art/tileset/pulkitverma/Dark_Gloomy_Ground_tileset.png" id="1_7p668"]
-[ext_resource type="Texture2D" uid="uid://b2slaxsg5ymvg" path="res://art/tileset/pulkitverma/Water_tileset.png" id="2_w040u"]
+[ext_resource type="Texture2D" uid="uid://du21v34y0pk6h" path="res://assets/tileset/pulkitverma/Dark_Gloomy_Ground_tileset.png" id="1_7p668"]
+[ext_resource type="Texture2D" uid="uid://b2slaxsg5ymvg" path="res://assets/tileset/pulkitverma/Water_tileset.png" id="2_w040u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0viv7"]
 texture = ExtResource("1_7p668")
