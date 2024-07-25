@@ -121,6 +121,7 @@ script = ExtResource("2_hwkp7")
 current_level = NodePath("..")
 
 [node name="MainTileMap" type="TileMap" parent="."]
+visible = false
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_uhfjq")
 format = 2
