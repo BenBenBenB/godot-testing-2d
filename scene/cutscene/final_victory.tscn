@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwmo54qwuir1l"]
+
+[ext_resource type="Script" path="res://scene/cutscene/final_victory.gd" id="1_e2fru"]
+[ext_resource type="PackedScene" uid="uid://0f4itcoh0tyx" path="res://scene/entity/player_top_down.tscn" id="2_7jkbm"]
+[ext_resource type="Texture2D" uid="uid://b1fjqp2ah0ych" path="res://art/backgrounds/earf.png" id="3_vgv55"]
+
+[node name="FinalVictory" type="Node2D"]
+script = ExtResource("1_e2fru")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 49)
+scale = Vector2(1.18008, 1.27046)
+zoom = Vector2(0.8, 0.8)
+
+[node name="PlayerTopDown" parent="." instance=ExtResource("2_7jkbm")]
+position = Vector2(59, -52)
+mass = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, -25)
+texture = ExtResource("3_vgv55")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -228.0
+offset_top = -106.0
+offset_right = -154.0
+offset_bottom = -83.0
+text = "Good job!"
