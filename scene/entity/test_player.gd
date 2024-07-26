@@ -17,10 +17,12 @@ const min_scale : float = 0.5
 func _ready():
 	#get info from level and update the UI
 	scroll_speed = current_level.scroll_speed
+	updateUI()
 	#initialise player scale
 	var ratio : float = (size / max_size) * (max_scale - min_scale) + min_scale
 	scale = Vector2(ratio, ratio)
-	updateUI()
+	#set start position
+	position = Vector2(32, 128)
 
 func get_input():
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
