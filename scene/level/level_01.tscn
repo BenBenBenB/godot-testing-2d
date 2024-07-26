@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_8dvbu"]
 [ext_resource type="Script" path="res://scene/level/ScrollingCamera.gd" id="2_hwkp7"]
-[ext_resource type="Texture2D" uid="uid://c1in4eh161pu5" path="res://art/tileset/background_sprite_sheet.png" id="2_sb0f7"]
-[ext_resource type="Texture2D" uid="uid://npd5qy1o14o4" path="res://art/sprite/tilemap-backgrounds.png" id="3_nqg50"]
+[ext_resource type="Texture2D" uid="uid://c1in4eh161pu5" path="res://assets/tileset/background_sprite_sheet.png" id="2_sb0f7"]
+[ext_resource type="Texture2D" uid="uid://npd5qy1o14o4" path="res://assets/sprite/tilemap-backgrounds.png" id="3_nqg50"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/test_player.tscn" id="5_arufi"]
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="6_olq2s"]
 

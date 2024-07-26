@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1fjqp2ah0ych"
-path="res://.godot/imported/earf.png-3fd8af53e255e00e988af828bc24f09a.ctex"
+path="res://.godot/imported/earf.png-115a04b79b0c6050b91c93f28edf3f0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/backgrounds/earf.png"
-dest_files=["res://.godot/imported/earf.png-3fd8af53e255e00e988af828bc24f09a.ctex"]
+source_file="res://assets/backgrounds/earf.png"
+dest_files=["res://.godot/imported/earf.png-115a04b79b0c6050b91c93f28edf3f0b.ctex"]
 
 [params]
 
