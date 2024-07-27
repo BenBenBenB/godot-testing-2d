@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="3_l51dj"]
 [ext_resource type="AudioStream" uid="uid://bs04j6l1u118i" path="res://assets/music/03 - boss music question mark.mp3" id="5_4qfxa"]
 
-[node name="Level" type="Node"]
+[node name="Level2" type="Node"]
 script = ExtResource("1_t2a0g")
 level_id = 2
 
@@ -29,7 +29,6 @@ position = Vector2(83, -15)
 
 [node name="Generic food5" parent="." instance=ExtResource("3_l51dj")]
 position = Vector2(98, 140)
-mass = 2000.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4qfxa")

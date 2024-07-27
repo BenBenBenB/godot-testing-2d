@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://kxhrm3jtu4th"]
+
+[ext_resource type="Script" path="res://script/entities/generic_bad_eat.gd" id="1_2go68"]
+[ext_resource type="Shader" path="res://resource/outline.gdshader" id="1_ckfpo"]
+[ext_resource type="Texture2D" uid="uid://bi3rxtrks1vp7" path="res://art/sprite/bad_sprites.png" id="2_6bgde"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7njh3"]
+radius = 7.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfx12"]
+shader = ExtResource("1_ckfpo")
+shader_parameter/line_color = Color(1, 1, 0.215686, 0.921569)
+shader_parameter/line_thickness = 1.0
+
+[node name="Generic bad eat" type="Area2D"]
+script = ExtResource("1_2go68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7njh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_tfx12")
+texture = ExtResource("2_6bgde")
+hframes = 4
+vframes = 2
+frame = 4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
