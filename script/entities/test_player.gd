@@ -39,8 +39,16 @@ func consume_mass(food_value: float):
 		var ratio: float = (size / max_size) * (max_scale - min_scale) + min_scale
 		scale = Vector2(ratio, ratio)
 		#This is to prevent the player from growing too big physically and get stuck in the level
-		
+	
 	updateUI()
+	
+	if food_value < 0:
+		player_hurt()
+	
+	if size <= 0:
+		#should use call_deffered but still error because it's called on self and it doesnt like that
+		player_die()
+	
 
 func _process(delta):
 	# this makes the player move with the camera
@@ -55,6 +63,7 @@ func _process(delta):
 		LevelManager.unload_level() # replace with a proper player_died method
 		
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	get_input()
 	if is_on_wall():
@@ -66,3 +75,13 @@ func _physics_process(delta):
 
 func updateUI():
 	size_text.text = str("Size: ", size)
+
+func player_hurt():
+	#Need to show player that it hurted
+	#Mainly just play visual and audio effects
+	pass	
+
+func player_die():
+	#for now we'll just directly reload the scene
+	#Should add a death UI screen or at least death message
+	get_tree().reload_current_scene()

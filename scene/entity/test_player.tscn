@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dev35xoudhei"]
 
+[ext_resource type="Script" path="res://script/entities/test_player.gd" id="1_n271h"]
 [ext_resource type="Texture2D" uid="uid://dueoobtmouswf" path="res://art/sprite/antimatter_particles.png" id="1_o4mia"]
-[ext_resource type="Script" path="res://scene/entity/test_player.gd" id="1_xlid6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1pb8"]
 radius = 1.0
@@ -51,7 +51,7 @@ anim_speed_max = 1.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_xlid6")
+script = ExtResource("1_n271h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)

@@ -12,7 +12,7 @@ shader = ExtResource("2_dedev")
 shader_parameter/line_color = Color(0.699478, 0.253791, 1, 1)
 shader_parameter/line_thickness = 1.0
 
-[node name="Generic food" type="Area2D"]
+[node name="Generic mushroom" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_p3tdl")
