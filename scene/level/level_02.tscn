@@ -28,4 +28,3 @@ position = Vector2(83, -15)
 
 [node name="Generic food5" parent="." instance=ExtResource("3_l51dj")]
 position = Vector2(98, 140)
-mass = 2000.0

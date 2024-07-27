@@ -14,6 +14,9 @@ var marker_pos : Vector2
 func _ready():
 	scroll_speed = current_level.scroll_speed
 	set_camera_limits()
+	position = Vector2(120, 128)
+	
+	print(is_current())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

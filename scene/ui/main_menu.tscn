@@ -47,7 +47,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Game title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "What's the Dark Matter?"
 label_settings = SubResource("LabelSettings_few2i")
@@ -58,15 +58,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_x8vjb")
 theme_override_font_sizes/font_size = 24
-text = "Level 1"
+text = "Play"
 
-[node name="PlayButton2" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="High scores" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_x8vjb")
 theme_override_font_sizes/font_size = 24
-text = "Level 2"
+text = "High Scores"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
@@ -77,6 +78,14 @@ theme_override_font_sizes/font_size = 24
 text = "Settings
 "
 
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_x8vjb")
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -86,6 +95,6 @@ theme_override_font_sizes/font_size = 24
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton2" to="." method="_on_play_button_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_play_button_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
