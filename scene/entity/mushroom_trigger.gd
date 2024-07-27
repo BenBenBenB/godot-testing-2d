@@ -1,7 +1,7 @@
 extends Area2D
 @export var camera : Camera2D
 @export var marker : Node2D
-
+@onready var triggered : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,5 +13,7 @@ func _process(delta):
 
 
 func _on_body_entered(body : CharacterBody2D):
-	camera.move_to_mushroom(marker.position)
-	print("You found the secret Mush-room!")
+	if !triggered:
+		camera.move_to_mushroom(marker.position)
+		#print("You found the secret Mush-room!")
+		triggered = true
