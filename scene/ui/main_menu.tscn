@@ -20,6 +20,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i3etc")
 
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ov3on")
+autoplay = true
+
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -94,10 +98,6 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_x8vjb")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
-
-[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ov3on")
-autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

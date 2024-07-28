@@ -2,7 +2,7 @@ class_name Level
 extends Node
 
 @export var level_id: int
-@onready var audio_stream_player = $AudioStreamPlayer
+@onready var audio_stream_player = $BackgroundMusic
 @export var scroll_speed: int = 50
 
 var level_data: LevelData
