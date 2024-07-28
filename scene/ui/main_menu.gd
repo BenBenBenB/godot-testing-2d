@@ -3,7 +3,6 @@ extends Control
 
 @onready var title_music = $TitleMusic
 
-
 func _ready():
 	pass
 
@@ -37,3 +36,4 @@ func activate() -> void:
 	set_process_input(true)
 	set_process_unhandled_input(true)
 	title_music.play();
+

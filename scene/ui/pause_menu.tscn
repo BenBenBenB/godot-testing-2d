@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://5tu3jjanyxhy"]
+[gd_scene load_steps=5 format=3 uid="uid://5tu3jjanyxhy"]
 
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_54ykf"]
-[ext_resource type="Texture2D" uid="uid://dueoobtmouswf" path="res://assets/sprite/antimatter_particles.png" id="2_dv7p2"]
+[ext_resource type="Script" path="res://scene/ui/button_methods.gd" id="2_2jf13"]
+[ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_45hui"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_207a1"]
 font_size = 50
@@ -12,50 +13,7 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0.254902, 0.627451)
 shadow_offset = Vector2(3, 3)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p08x2"]
-atlas = ExtResource("2_dv7p2")
-region = Rect2(0, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tse4b"]
-atlas = ExtResource("2_dv7p2")
-region = Rect2(8, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkpk3"]
-atlas = ExtResource("2_dv7p2")
-region = Rect2(16, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pg71g"]
-atlas = ExtResource("2_dv7p2")
-region = Rect2(24, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dq8yi"]
-atlas = ExtResource("2_dv7p2")
-region = Rect2(32, 0, 8, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_op5i2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p08x2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tse4b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bkpk3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pg71g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dq8yi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
-[node name="pause_menu" type="Control"]
+[node name="pause_menu" type="Control" node_paths=PackedStringArray("hover_particle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,6 +21,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_54ykf")
+script = ExtResource("2_2jf13")
+hover_particle = NodePath("ColorRect/HBoxContainer/hover particle")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -74,11 +34,9 @@ grow_vertical = 2
 color = Color(0.194349, 0.194349, 0.194349, 0.313726)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_dv7p2")
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -111,27 +69,42 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="retry Button2" type="Button" parent="ColorRect/HBoxContainer"]
+[node name="RetryButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Retry"
 
-[node name="continue Button" type="Button" parent="ColorRect/HBoxContainer"]
+[node name="ContinueButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Continue"
 
-[node name="menu Button2" type="Button" parent="ColorRect/HBoxContainer"]
+[node name="MenuButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Main Menu"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="hover particle" parent="ColorRect/HBoxContainer" instance=ExtResource("3_45hui")]
 visible = false
-sprite_frames = SubResource("SpriteFrames_op5i2")
+
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_entered" binds= ["ContinueButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_entered" binds= ["ContinueButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_exited"]
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
