@@ -209,6 +209,7 @@ rotation = -0.883866
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Size Label" type="Label" parent="CanvasLayer"]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Size: "
