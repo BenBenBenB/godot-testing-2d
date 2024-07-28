@@ -16,6 +16,8 @@ const min_scale: float = 0.5
 
 #UI
 @onready var size_text: Label = $"CanvasLayer/Size Label"
+
+
 func _ready():
 	#get info from level and update the UI
 	scroll_speed = current_level.scroll_speed
@@ -60,6 +62,11 @@ func _process(delta):
 		position = Vector2(delta_x + left_wall, position.y)
 	if position.x < left_wall:
 		LevelManager.unload_level() # replace with a proper player_died method
+	
+	#detect game pausing input
+	if Input.is_action_just_released("pause"):
+		get_tree().paused = true
+		$CanvasLayer/pause_menu.show()
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):

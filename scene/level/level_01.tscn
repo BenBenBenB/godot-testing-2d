@@ -178,7 +178,6 @@ text = "Size: "
 label_settings = SubResource("LabelSettings_gq3t0")
 
 [node name="pause_menu" parent="CharacterBody2D/CanvasLayer" instance=ExtResource("12_h4vcx")]
-process_mode = 2
 visible = false
 
 [node name="testingCamera2D" type="Camera2D" parent="CharacterBody2D"]
