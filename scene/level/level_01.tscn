@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=18 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dqnurckrapc3f" path="res://scene/entity/trigger_box.tscn" id="6_ietob"]
 [ext_resource type="Script" path="res://script/entities/end_trigger.gd" id="7_fcsdi"]
 [ext_resource type="Script" path="res://script/entities/mushroom_trigger.gd" id="8_ctgmh"]
+[ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="9_av47y"]
 [ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
 [ext_resource type="PackedScene" uid="uid://5tu3jjanyxhy" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
+[ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
@@ -169,17 +171,6 @@ tilemap = NodePath("../SmallMainTileMap")
 position = Vector2(2818, 110)
 current_level = NodePath("..")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D"]
-
-[node name="Size Label" type="Label" parent="CharacterBody2D/CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Size: "
-label_settings = SubResource("LabelSettings_gq3t0")
-
-[node name="pause_menu" parent="CharacterBody2D/CanvasLayer" instance=ExtResource("12_h4vcx")]
-visible = false
-
 [node name="testingCamera2D" type="Camera2D" parent="CharacterBody2D"]
 enabled = false
 zoom = Vector2(1.4, 1.4)
@@ -214,3 +205,36 @@ rotation = -0.883866
 [node name="TurretStraightLine4" parent="." instance=ExtResource("10_iqs3h")]
 position = Vector2(209, 178)
 rotation = -0.883866
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Size Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Size: "
+label_settings = SubResource("LabelSettings_gq3t0")
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("12_h4vcx")]
+unique_name_in_owner = true
+visible = false
+
+[node name="death_menu" parent="CanvasLayer" instance=ExtResource("9_av47y")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Generic bad eat" parent="." instance=ExtResource("14_y86k8")]
+position = Vector2(188, 145)
+
+[node name="Generic bad eat2" parent="." instance=ExtResource("14_y86k8")]
+position = Vector2(266, 219)
+
+[node name="Generic bad eat3" parent="." instance=ExtResource("14_y86k8")]
+position = Vector2(281, 124)
+
+[node name="Generic bad eat4" parent="." instance=ExtResource("14_y86k8")]
+position = Vector2(378, 99)
+
+[node name="Generic bad eat5" parent="." instance=ExtResource("14_y86k8")]
+position = Vector2(389, 168)
+
+[connection signal="stop_scroll" from="CharacterBody2D" to="Camera2D" method="stop_scroll"]

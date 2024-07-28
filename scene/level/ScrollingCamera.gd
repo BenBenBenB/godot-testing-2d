@@ -8,15 +8,13 @@ var scroll_speed : int
 var start_pos : Vector2
 var marker_pos : Vector2
 @onready var t : float = 0.0
-#@export var player : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scroll_speed = current_level.scroll_speed
 	set_camera_limits()
 	position = Vector2(120, 128)
-	
-	print(is_current())
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,3 +46,6 @@ func move_to_mushroom(marker : Vector2):
 	start_pos = position
 	marker_pos = marker
 	found_mushroom = true
+
+func stop_scroll():
+	scroll_speed = 0

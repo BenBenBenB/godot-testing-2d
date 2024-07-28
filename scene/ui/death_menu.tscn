@@ -87,6 +87,7 @@ visible = false
 [connection signal="focus_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
 [connection signal="mouse_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
 [connection signal="mouse_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="focus_entered" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
 [connection signal="focus_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
 [connection signal="mouse_entered" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]

@@ -46,4 +46,4 @@ func _on_menu_button_pressed():
 
 func _on_retry_button_pressed():
 	#reload current scene
-	pass # Replace with function body.
+	get_tree().reload_current_scene()

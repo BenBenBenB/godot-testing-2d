@@ -13,16 +13,17 @@ var left_wall = -120
 const max_size: float = 100
 const max_scale: float = 3.0
 const min_scale: float = 0.5
+var dead : bool = false
 
 #UI
-@onready var size_text: Label = $"CanvasLayer/Size Label"
+#@onready var size_text: Label = $"CanvasLayer/Size Label"
 
 
 func _ready():
 	#get info from level and update the UI
 	scroll_speed = current_level.scroll_speed
 	auto_forward = true
-	updateUI()
+	#updateUI()
 	#initialise player scale
 	var ratio: float = (size / max_size) * (max_scale - min_scale) + min_scale
 	scale = Vector2(ratio, ratio)
@@ -42,7 +43,7 @@ func consume_mass(food_value: float):
 		scale = Vector2(ratio, ratio)
 		#This is to prevent the player from growing too big physically and get stuck in the level
 	
-	updateUI()
+	#updateUI()
 	
 	if food_value < 0:
 		player_hurt()
@@ -66,27 +67,38 @@ func _process(delta):
 	#detect game pausing input
 	if Input.is_action_just_released("pause"):
 		get_tree().paused = true
-		$CanvasLayer/pause_menu.show()
+		get_node("%pause_menu").show()
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
-	get_input()
+	if !dead:
+		get_input()
 	if is_on_wall():
 		var normal = get_wall_normal()
 		if normal.x < 1:
 			position += normal * wall_bump_distance
 			auto_forward = false
-	move_and_slide()
+	if !dead:
+		move_and_slide()
 
-func updateUI():
-	size_text.text = str("Size: ", size)
+#func updateUI():
+	#size_text.text = str("Size: ", size)
 
 func player_hurt():
 	#Need to show player that it hurted
 	#Mainly just play visual and audio effects
 	pass
 
+signal stop_scroll
+
 func player_die():
-	#for now we'll just directly reload the scene
-	#Should add a death UI screen or at least death message
-	get_tree().reload_current_scene()
+	#make player explode (play particle effect)
+	#disable player
+	dead = true
+	scroll_speed = 0
+	#tell camera to stop scrolling
+	emit_signal("stop_scroll")
+	#show death screen
+	get_node("%death_menu").show()
+	
+	
