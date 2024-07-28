@@ -49,8 +49,9 @@ gravity = Vector3(0, 0, 0)
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
+collision_layer = 7
 script = ExtResource("1_n271h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

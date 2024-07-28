@@ -48,7 +48,6 @@ func consume_mass(food_value: float):
 	if size <= 0:
 		#should use call_deffered but still error because it's called on self and it doesnt like that
 		player_die()
-	
 
 func _process(delta):
 	# this makes the player move with the camera
@@ -61,7 +60,6 @@ func _process(delta):
 		position = Vector2(delta_x + left_wall, position.y)
 	if position.x < left_wall:
 		LevelManager.unload_level() # replace with a proper player_died method
-		
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
@@ -79,7 +77,7 @@ func updateUI():
 func player_hurt():
 	#Need to show player that it hurted
 	#Mainly just play visual and audio effects
-	pass	
+	pass
 
 func player_die():
 	#for now we'll just directly reload the scene
