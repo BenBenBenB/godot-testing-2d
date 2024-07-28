@@ -3,14 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c6krlrd2cb8sl" path="res://assets/sprite/tilemap-backgrounds_packed.png" id="1_gpdyg"]
 [ext_resource type="Script" path="res://scene/ui/main_menu.gd" id="1_i3etc"]
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_yi4ks"]
-[ext_resource type="SystemFont" uid="uid://bjm683dc1k61r" path="res://resource/main_menu_button_font.tres" id="2_x8vjb"]
 [ext_resource type="AudioStream" uid="uid://dsb85bjxex0dc" path="res://assets/music/03 - menu_game jam test 1.mp3" id="3_67hhc"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_few2i"]
-font = ExtResource("2_x8vjb")
-font_size = 38
-outline_size = 13
-outline_color = Color(1, 0.47451, 0, 0.643137)
+[ext_resource type="Script" path="res://scene/ui/button_methods.gd" id="3_wo6m4"]
+[ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="7_giq17"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,6 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_yi4ks")
 script = ExtResource("1_i3etc")
+
+[node name="Button script holder" type="Control" parent="." node_paths=PackedStringArray("hover_particle")]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_wo6m4")
+hover_particle = NodePath("../MarginContainer/VBoxContainer/VBoxContainer2/hover particle")
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_67hhc")
@@ -51,58 +54,80 @@ theme_override_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 32
+theme_override_constants/separation = 50
 
 [node name="Game title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "What's the Dark Matter?"
-label_settings = SubResource("LabelSettings_few2i")
+theme_override_font_sizes/font_size = 60
+text = "G. R A. V. Y."
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_x8vjb")
-theme_override_font_sizes/font_size = 24
 text = "Play"
 
-[node name="High scores" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HighscoresButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_x8vjb")
-theme_override_font_sizes/font_size = 24
 text = "High Scores"
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_x8vjb")
-theme_override_font_sizes/font_size = 24
 text = "Settings
 "
 
-[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_x8vjb")
-theme_override_font_sizes/font_size = 24
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_x8vjb")
-theme_override_font_sizes/font_size = 24
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_play_button_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="hover particle" parent="MarginContainer/VBoxContainer/VBoxContainer2" instance=ExtResource("7_giq17")]
+visible = false
+position = Vector2(102, 160)
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="Button script holder" method="_on_button_focus_entered" binds= ["PlayButton"]]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="Button script holder" method="_on_button_focus_entered" binds= ["PlayButton"]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/HighscoresButton" to="Button script holder" method="_on_button_focus_entered" binds= ["HighscoresButton"]]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/HighscoresButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/HighscoresButton" to="Button script holder" method="_on_button_focus_entered" binds= ["HighscoresButton"]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/HighscoresButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/SettingsButton" to="Button script holder" method="_on_button_focus_entered" binds= ["SettingsButton"]]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/SettingsButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/SettingsButton" to="Button script holder" method="_on_button_focus_entered" binds= ["SettingsButton"]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/SettingsButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/CreditsButton" to="Button script holder" method="_on_button_focus_entered" binds= ["CreditsButton"]]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/CreditsButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/CreditsButton" to="Button script holder" method="_on_button_focus_entered" binds= ["CreditsButton"]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/CreditsButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/QuitButton" to="Button script holder" method="_on_button_focus_entered" binds= ["QuitButton"]]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/QuitButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/QuitButton" to="Button script holder" method="_on_button_focus_entered" binds= ["QuitButton"]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/QuitButton" to="Button script holder" method="_on_button_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -13,9 +13,9 @@ func _on_play_button_pressed():
 	LevelManager.load_level(1)
 	deactivate()
 
-func _on_play_button_2_pressed():
-	LevelManager.load_level(2)
-	deactivate()
+#func _on_play_button_2_pressed():
+	#LevelManager.load_level(2)
+	#deactivate()
 
 func _on_settings_button_pressed():
 	pass

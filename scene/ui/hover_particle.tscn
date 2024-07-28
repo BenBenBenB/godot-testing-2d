@@ -46,5 +46,6 @@ animations = [{
 }]
 
 [node name="hover particle" type="AnimatedSprite2D"]
+z_index = 10
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_op5i2")
