@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=16 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://script/entities/end_trigger.gd" id="7_fcsdi"]
 [ext_resource type="Script" path="res://script/entities/mushroom_trigger.gd" id="8_ctgmh"]
 [ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
+[ext_resource type="PackedScene" uid="uid://5tu3jjanyxhy" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
@@ -111,6 +112,7 @@ sources/0 = SubResource("TileSetAtlasSource_rdtw8")
 font_color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_mwkm8")
 level_id = 1
 
@@ -174,6 +176,10 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Size: "
 label_settings = SubResource("LabelSettings_gq3t0")
+
+[node name="pause_menu" parent="CharacterBody2D/CanvasLayer" instance=ExtResource("12_h4vcx")]
+process_mode = 2
+visible = false
 
 [node name="testingCamera2D" type="Camera2D" parent="CharacterBody2D"]
 enabled = false
