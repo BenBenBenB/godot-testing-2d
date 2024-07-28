@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://buon2mtc7x5m4"]
+[gd_scene load_steps=7 format=3 uid="uid://buon2mtc7x5m4"]
 
 [ext_resource type="Texture2D" uid="uid://c6krlrd2cb8sl" path="res://assets/sprite/tilemap-backgrounds_packed.png" id="1_gpdyg"]
 [ext_resource type="Script" path="res://scene/ui/main_menu.gd" id="1_i3etc"]
+[ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_yi4ks"]
 [ext_resource type="SystemFont" uid="uid://bjm683dc1k61r" path="res://resource/main_menu_button_font.tres" id="2_x8vjb"]
-[ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - mad scientist music.mp3" id="4_ov3on"]
+[ext_resource type="AudioStream" uid="uid://dsb85bjxex0dc" path="res://assets/music/03 - menu_game jam test 1.mp3" id="3_67hhc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_few2i"]
 font = ExtResource("2_x8vjb")
@@ -18,10 +19,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_yi4ks")
 script = ExtResource("1_i3etc")
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ov3on")
+stream = ExtResource("3_67hhc")
 autoplay = true
 
 [node name="Background" type="TextureRect" parent="."]

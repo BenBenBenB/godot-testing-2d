@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/test_player.tscn" id="3_awf55"]
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="3_l51dj"]
-[ext_resource type="AudioStream" uid="uid://bs04j6l1u118i" path="res://assets/music/03 - boss music question mark.mp3" id="5_4qfxa"]
+[ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - rat-boss_mad scientist music.mp3" id="4_iqnhy"]
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_t2a0g")
@@ -27,4 +27,4 @@ position = Vector2(83, -15)
 position = Vector2(98, 140)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_4qfxa")
+stream = ExtResource("4_iqnhy")

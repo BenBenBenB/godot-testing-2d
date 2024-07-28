@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://nd2u72aiasw8"]
+
+[ext_resource type="Texture2D" uid="uid://bxiada2mhi4sw" path="res://assets/sprite/tilemap.png" id="1_twr08"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4kg3"]
+texture = ExtResource("1_twr08")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(171, 19, 18, 18)
+modulate_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_244yh"]
+texture = ExtResource("1_twr08")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(171, 0, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ohd4x"]
+texture = ExtResource("1_twr08")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(171, 19, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cerq4"]
+texture = ExtResource("1_twr08")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(133, 38, 18, 18)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_b4kg3")
+Button/styles/hover = SubResource("StyleBoxTexture_244yh")
+Button/styles/normal = SubResource("StyleBoxTexture_ohd4x")
+Button/styles/pressed = SubResource("StyleBoxTexture_cerq4")
+Label/font_sizes/font_size = 40
