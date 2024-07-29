@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=19 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="9_av47y"]
 [ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
 [ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
-[ext_resource type="PackedScene" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
+[ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
+[ext_resource type="PackedScene" uid="uid://38vv3dma8qfv" path="res://scene/entity/generic_mushroom.tscn" id="15_y3a7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
@@ -237,5 +238,26 @@ position = Vector2(378, 99)
 
 [node name="Generic bad eat5" parent="." instance=ExtResource("14_y86k8")]
 position = Vector2(389, 168)
+
+[node name="Generic mushroom" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(2829, 347)
+
+[node name="Generic mushroom2" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(2828, 409)
+
+[node name="Generic mushroom3" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(2860, 490)
+
+[node name="Generic mushroom4" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(2921, 436)
+
+[node name="Generic mushroom5" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(2895, 375)
+
+[node name="Generic mushroom6" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(2948, 494)
+
+[node name="Generic mushroom7" parent="." instance=ExtResource("15_y3a7g")]
+position = Vector2(3008, 426)
 
 [connection signal="stop_scroll" from="CharacterBody2D" to="Camera2D" method="stop_scroll"]

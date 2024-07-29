@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=3 uid="uid://38vv3dma8qfv"]
 
+[ext_resource type="Script" path="res://script/entities/generic_mushroom.gd" id="1_dv0cd"]
 [ext_resource type="Shader" path="res://resource/outline.gdshader" id="2_dedev"]
 [ext_resource type="Texture2D" uid="uid://dr14ypni6h6cj" path="res://assets/sprite/Mushroom_dance.png" id="3_hjotv"]
-[ext_resource type="Texture2D" uid="uid://dqk4wsvn1dn31" path="res://assets/sprite/Mushrooms_16x16.png" id="3_usqaq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3tdl"]
 radius = 6.0
@@ -125,7 +125,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_gteip")
 }],
 "loop": true,
-"name": &"pale_green",
+"name": &"pale green",
 "speed": 5.0
 }, {
 "frames": [{
@@ -164,27 +164,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_hfqhl")
 }],
 "loop": true,
-"name": &"yellow_green",
+"name": &"yellow green",
 "speed": 4.0
 }]
 
 [node name="Generic mushroom" type="Area2D"]
+script = ExtResource("1_dv0cd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_p3tdl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-material = SubResource("ShaderMaterial_tfx12")
-texture = ExtResource("3_usqaq")
-hframes = 3
-vframes = 2
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_tfx12")
 sprite_frames = SubResource("SpriteFrames_autjj")
-animation = &"yellow_green"
-frame = 1
-frame_progress = 0.856276
+animation = &"yellow green"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,7 +10,7 @@ var size: float = 10
 var auto_forward: bool
 var wall_bump_distance = 2
 var left_wall = -120
-const max_size: float = 100
+const max_size: float = 500
 const max_scale: float = 3.0
 const min_scale: float = 0.5
 var dead : bool = false
