@@ -9,7 +9,7 @@ class_name LevelActiveScreen
 @onready var pause_timer: Timer = $"../../PauseTimer"
 
 func _can_pause():
-	print(pause_timer.is_stopped())
+	#print(pause_timer.is_stopped())
 	return pause_timer.is_stopped()
 
 func enter():

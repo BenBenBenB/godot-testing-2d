@@ -1,30 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://c54m08gugew1i"]
+[gd_scene load_steps=7 format=3 uid="uid://c54m08gugew1i"]
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
-[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/test_player.tscn" id="3_awf55"]
-[ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="3_l51dj"]
+[ext_resource type="Texture2D" uid="uid://d1jmtjxxkrq7j" path="res://assets/tileset/sewer_assets.png" id="3_io4od"]
 [ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - rat-boss_mad scientist music.mp3" id="4_iqnhy"]
+[ext_resource type="Script" path="res://scene/level/ScrollingCamera.gd" id="4_lpm2l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1eiqf"]
+texture = ExtResource("3_io4od")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_pt1ii"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1eiqf")
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_t2a0g")
 level_id = 2
 
-[node name="antimatter" parent="." instance=ExtResource("3_awf55")]
-
-[node name="Generic food" parent="." instance=ExtResource("3_l51dj")]
-position = Vector2(86, 27)
-
-[node name="Generic food2" parent="." instance=ExtResource("3_l51dj")]
-position = Vector2(50, 10)
-
-[node name="Generic food3" parent="." instance=ExtResource("3_l51dj")]
-position = Vector2(8, 38)
-
-[node name="Generic food4" parent="." instance=ExtResource("3_l51dj")]
-position = Vector2(83, -15)
-
-[node name="Generic food5" parent="." instance=ExtResource("3_l51dj")]
-position = Vector2(98, 140)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_iqnhy")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_pt1ii")
+format = 2
+layer_0/name = "Tiles"
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 262151, 0, 0, 262152, 0, 0, 196617, 0, 0, 131081, 0, 0, 131080, 0, 0, 65544, 0, 0, 65543, 0, 0, 7, 0, 0, 6, 0, 0, 5, 0, 0, 4, 0, 0, 3, 0, 0, 2, 0, 0, 1, 0, 0, -262149, 131072, 0, -262148, 131072, 0, -262147, 131072, 0, -196611, 131072, 0, -196610, 131072, 0, -131074, 131072, 0, -65538, 131072, 0, -65539, 131072, 0, -3, 131072, 0, -4, 131072, 0, -5, 131072, 0, -6, 131072, 0, -65542, 131072, 0, -65543, 131072, 0, -131079, 131072, 0, -196615, 131072, 0, -262151, 131072, 0, -327687, 131072, 0, -327686, 131072, 0, -327685, 131072, 0, -262150, 131072, 0, -196614, 131072, 0, -196613, 131072, 0, -131077, 131072, 0, -131076, 131072, 0, -131075, 131072, 0, -196612, 131072, 0, -65541, 131072, 0, -65540, 131072, 0, -131078, 131072, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("current_level", "tilemap")]
+position = Vector2(120, 128)
+zoom = Vector2(1.4, 1.4)
+script = ExtResource("4_lpm2l")
+current_level = NodePath("..")
+tilemap = NodePath("../TileMap")
