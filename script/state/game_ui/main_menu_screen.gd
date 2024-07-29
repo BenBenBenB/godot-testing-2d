@@ -28,11 +28,11 @@ func exit_game():
 	get_tree().quit()
 
 func show_settings():
-	pass #todo
+	pass # todo
 	#Transitioned.emit(settings_screen)
 	
 func show_credits():
-	pass #todo
+	pass # todo
 	#Transitioned.emit(credits_screen)
 
 func start_game(level_id: int):

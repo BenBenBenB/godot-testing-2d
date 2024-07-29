@@ -21,7 +21,8 @@ func _physics_process(delta):
 	
 func on_child_transitioned(new_state_in: State) -> void:
 	var new_state = states.get(new_state_in.name.to_lower())
-	if new_state == null: 
+	print(new_state.name)
+	if new_state == null:
 		push_warning("Called transition to a state that does not exist.")
 	elif new_state != current_state:
 		current_state.exit()

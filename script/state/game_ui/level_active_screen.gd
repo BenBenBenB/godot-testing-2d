@@ -2,19 +2,18 @@ extends State
 class_name LevelActiveScreen
 # can pause, die, or finish the level
 
+# states
 @onready var death_screen = $"../DeathScreen"
 @onready var pause_menu_screen = $"../PauseMenuScreen"
 @onready var victory_screen = $"../VictoryScreen"
-
+# nodes
 @onready var pause_timer: Timer = $"../../PauseTimer"
 
-func _can_pause():
-	print(pause_timer.is_stopped())
-	return pause_timer.is_stopped()
-
-func enter():
+func _ready():
 	pass
-	# todo: set up player death signal
+
+func _can_pause():
+	return pause_timer.is_stopped()
 
 func exit():
 	pass
@@ -24,6 +23,11 @@ func update(_delta):
 		and Input.is_action_just_pressed("pause") \
 		and not Input.is_action_just_released("pause"):
 		Transitioned.emit(pause_menu_screen)
+		
+	var player = get_tree().get_first_node_in_group("Player")
+	if is_instance_of(player, PlayerBlackhole) and player.is_dead():
+		player_died()
+		
 
 func player_died():
 	Transitioned.emit(death_screen)
