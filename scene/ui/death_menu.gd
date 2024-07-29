@@ -1,4 +1,8 @@
 extends Control
+class_name DeathMenu
+
+signal RestartLevel()
+signal ExitLevel()
 
 @export var hover_particle : AnimatedSprite2D
 
@@ -17,18 +21,22 @@ func _on_button_focus_exited():
 		hover_particle.visible = false
 		hover_particle.stop()
 
-func _on_continue_button_pressed():
-	#unpause, hides pause menu
-	hide()
-	get_tree().paused = false
-
-
 func _on_menu_button_pressed():
-	#load menu scene
-	pass # Replace with function body.
-
+	deactivate()
+	ExitLevel.emit()
 
 func _on_retry_button_pressed():
-	#reload current scene
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	deactivate()
+	RestartLevel.emit()
+
+func deactivate() -> void:
+	hide()
+	set_process(false)
+	set_process_input(false)
+	set_process_unhandled_input(false)
+
+func activate() -> void:
+	show()
+	set_process(true)
+	set_process_input(true)
+	set_process_unhandled_input(true)

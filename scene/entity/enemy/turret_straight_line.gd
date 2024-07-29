@@ -21,5 +21,3 @@ func shoot():
 	var bullet: Projectile = projectile.instantiate()
 	owner.add_child(bullet)
 	bullet.transform = bullet_spawn_point.global_transform
-
-

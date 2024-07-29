@@ -42,10 +42,12 @@ one_shot = true
 position = Vector2(148, 435)
 
 [node name="UIMain" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="MainMenu" parent="UIMain" instance=ExtResource("2_acwq4")]
 
 [node name="PauseMenu" parent="UIMain" instance=ExtResource("4_r2tqv")]
+process_mode = 0
 visible = false
 
 [node name="DeathMenu" parent="UIMain" instance=ExtResource("5_aw3yp")]
