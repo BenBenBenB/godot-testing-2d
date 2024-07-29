@@ -8,4 +8,3 @@ func _on_body_entered(body):
 	# move player out of screen
 	# load next level
 		print("You've reached the end")
-	

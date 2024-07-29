@@ -1,13 +1,13 @@
 extends Camera2D
 
-@export var current_level : Level
-@export var tilemap : TileMap
-var scroll_speed : int
+@export var current_level: Level
+@export var tilemap: TileMap
+var scroll_speed: int
 
-@onready var found_mushroom : bool = false
-var start_pos : Vector2
-var marker_pos : Vector2
-@onready var t : float = 0.0
+@onready var found_mushroom: bool = false
+var start_pos: Vector2
+var marker_pos: Vector2
+@onready var t: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,7 +42,7 @@ func set_camera_limits():
 	limit_top = map_limits.position.y * map_cellsize
 	limit_bottom = map_limits.end.y * map_cellsize
 	
-func move_to_mushroom(marker : Vector2):
+func move_to_mushroom(marker: Vector2):
 	start_pos = position
 	marker_pos = marker
 	found_mushroom = true
