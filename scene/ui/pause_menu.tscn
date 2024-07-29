@@ -17,6 +17,7 @@ script = ExtResource("2_6pl23")
 hover_particle = NodePath("ColorRect/HBoxContainer/hover particle")
 
 [node name="PauseMuzak" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

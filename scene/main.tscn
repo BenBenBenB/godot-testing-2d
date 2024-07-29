@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cc62577318f2y"]
+[gd_scene load_steps=17 format=3 uid="uid://cc62577318f2y"]
 
 [ext_resource type="Script" path="res://scene/main.gd" id="1_l7ohu"]
 [ext_resource type="Script" path="res://script/classes/level_data.gd" id="2_3thhf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="5_aw3yp"]
 [ext_resource type="Script" path="res://script/state/game_ui/death_screen.gd" id="5_dvhj4"]
 [ext_resource type="Script" path="res://script/state/game_ui/main_menu_screen.gd" id="6_oc72y"]
+[ext_resource type="PackedScene" uid="uid://dm72p31hntb2a" path="res://scene/ui/settings.tscn" id="6_pipb7"]
 [ext_resource type="Script" path="res://script/state/game_ui/level_active_screen.gd" id="7_xid75"]
 [ext_resource type="Script" path="res://script/state/game_ui/pause_menu_screen.gd" id="9_t7can"]
 [ext_resource type="Script" path="res://script/state/game_ui/victory_screen.gd" id="10_lkmeh"]
@@ -51,6 +52,9 @@ process_mode = 0
 visible = false
 
 [node name="DeathMenu" parent="UIMain" instance=ExtResource("5_aw3yp")]
+visible = false
+
+[node name="Settings" parent="UIMain" instance=ExtResource("6_pipb7")]
 visible = false
 
 [node name="StateMachineUI" type="Node" parent="." node_paths=PackedStringArray("current_state")]
