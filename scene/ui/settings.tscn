@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm72p31hntb2a"]
+
+[ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_gy3fc"]
+[ext_resource type="Texture2D" uid="uid://qij8po5yl3e" path="res://assets/tileset/UI sprites.png" id="2_xp3aw"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gy3fc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.490196)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xp3aw")
+region_rect = Rect2(0, 128, 64, 64)
+patch_margin_left = 27
+patch_margin_top = 40
+patch_margin_right = 31
+patch_margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -57.5
+offset_right = 90.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="music_label" type="Label" parent="NinePatchRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Music"
+
+[node name="music_slider" type="HSlider" parent="NinePatchRect/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+value = 100.0
+
+[node name="sfx_label" type="Label" parent="NinePatchRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="NinePatchRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+value = 100.0
+
+[node name="CheckBox" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+text = "Brightness"

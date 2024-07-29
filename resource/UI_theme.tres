@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://nd2u72aiasw8"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://nd2u72aiasw8"]
 
 [ext_resource type="Texture2D" uid="uid://qij8po5yl3e" path="res://assets/tileset/UI sprites.png" id="1_p2sh0"]
+[ext_resource type="Texture2D" uid="uid://c0c47c0cmbhcg" path="res://assets/tileset/slider_knob_normal.png" id="2_lqwec"]
 [ext_resource type="FontFile" uid="uid://dif6us7epwnyd" path="res://resource/rondure/Rondure Display/Rondure-Regular.ttf" id="2_y8oiu"]
+[ext_resource type="Texture2D" uid="uid://bfii8o1360bpr" path="res://assets/tileset/slider_knob_goopy.png" id="3_qc6oa"]
 
 [sub_resource type="SystemFont" id="SystemFont_pbvwy"]
 font_names = PackedStringArray("ROG Fonts")
@@ -95,6 +97,8 @@ Button/styles/focus = SubResource("StyleBoxFlat_wbp6p")
 Button/styles/hover = SubResource("StyleBoxTexture_244yh")
 Button/styles/normal = SubResource("StyleBoxTexture_ohd4x")
 Button/styles/pressed = SubResource("StyleBoxTexture_cerq4")
+HSlider/icons/grabber = ExtResource("2_lqwec")
+HSlider/icons/grabber_highlight = ExtResource("3_qc6oa")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0.470076, 0.470076, 0.470076, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0.254902, 0.627451)
