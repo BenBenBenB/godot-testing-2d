@@ -5,10 +5,31 @@ var levels: Array[LevelData]
 var main_scene: Node2D = null
 var loaded_level: Level = null
 
+func pause_level() -> void:
+	if is_instance_valid(loaded_level):
+		loaded_level.pause()
+
+func unpause_level() -> void:
+	if is_instance_valid(loaded_level):
+		loaded_level.unpause()
+
+func restart_level() -> void:
+	if is_instance_valid(loaded_level):
+		var level_id: int = loaded_level.level_id
+		loaded_level.queue_free()
+		load_level(level_id)
+	
+# unload current level and load next level.
+func load_next_level() -> void:
+	if is_instance_valid(loaded_level):
+		var level_id: int = loaded_level.level_id
+		loaded_level.queue_free()
+		load_level(level_id + 1)
+	get_tree().paused = false
+
 func unload_level() -> void:
 	if is_instance_valid(loaded_level):
 		loaded_level.queue_free()
-		
 	loaded_level = null
 	
 func load_level(level_id: int) -> void:

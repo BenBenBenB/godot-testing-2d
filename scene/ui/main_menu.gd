@@ -1,28 +1,21 @@
-class_name MainMenu
 extends Control
+class_name MainMenu
+
+signal StartLevel(level_id: int)
+signal Settings()
+signal Quit()
+signal Credits()
 
 @onready var title_music = $TitleMusic
 
-
-func _ready():
-	pass
-
-func _process(_delta):
-	pass
-
 func _on_play_button_pressed():
-	LevelManager.load_level(1)
-	deactivate()
-
-func _on_play_button_2_pressed():
-	LevelManager.load_level(2)
-	deactivate()
+	StartLevel.emit(1)
 
 func _on_settings_button_pressed():
-	pass
+	Settings.emit()
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	Quit.emit()
 
 func deactivate() -> void:
 	hide()

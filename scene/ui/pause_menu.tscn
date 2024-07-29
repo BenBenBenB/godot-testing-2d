@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://bddy0xye4soiv"]
+
+[ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_54ykf"]
+[ext_resource type="Script" path="res://scene/ui/pause_menu.gd" id="2_6pl23"]
+[ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_45hui"]
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("hover_particle") groups=["pause menu"]]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_54ykf")
+script = ExtResource("2_6pl23")
+hover_particle = NodePath("ColorRect/HBoxContainer/hover particle")
+
+[node name="PauseMuzak" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.194349, 0.194349, 0.194349, 0.313726)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.4
+offset_top = -36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -180.0
+offset_right = 125.0
+offset_bottom = 0.000274658
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="RetryButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Retry"
+
+[node name="ContinueButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Continue"
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
+
+[node name="hover particle" parent="ColorRect/HBoxContainer" instance=ExtResource("3_45hui")]
+visible = false
+
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_entered" binds= ["ContinueButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_entered" binds= ["ContinueButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/MainMenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/MainMenuButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/MainMenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/MainMenuButton" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/MainMenuButton" to="." method="_on_menu_button_pressed"]

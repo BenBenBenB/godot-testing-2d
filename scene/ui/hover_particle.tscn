@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg2matkx410x5"]
+
+[ext_resource type="Texture2D" uid="uid://dueoobtmouswf" path="res://assets/sprite/antimatter_particles.png" id="1_hklo7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p08x2"]
+atlas = ExtResource("1_hklo7")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tse4b"]
+atlas = ExtResource("1_hklo7")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkpk3"]
+atlas = ExtResource("1_hklo7")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg71g"]
+atlas = ExtResource("1_hklo7")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq8yi"]
+atlas = ExtResource("1_hklo7")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op5i2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p08x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tse4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkpk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg71g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq8yi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="hover particle" type="AnimatedSprite2D"]
+z_index = 10
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_op5i2")

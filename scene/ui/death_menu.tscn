@@ -1,9 +1,93 @@
-[gd_scene format=3 uid="uid://ht5y7fx1fdck"]
+[gd_scene load_steps=5 format=3 uid="uid://ht5y7fx1fdck"]
 
-[node name="Death_menu" type="Control"]
+[ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_hfdxg"]
+[ext_resource type="Script" path="res://scene/ui/death_menu.gd" id="2_lxl4x"]
+[ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_bi2ty"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_207a1"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+outline_size = 15
+outline_color = Color(0.79823, 0.740234, 1.15514e-06, 1)
+shadow_size = 10
+shadow_color = Color(0.757151, 0, 0.116176, 0.627451)
+shadow_offset = Vector2(5, 5)
+
+[node name="DeathMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hfdxg")
+script = ExtResource("2_lxl4x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.894118, 0, 0.156863, 0.235294)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.4
+offset_top = -34.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Annihilated"
+label_settings = SubResource("LabelSettings_207a1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -180.0
+offset_right = 125.0
+offset_bottom = 0.000274658
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="RetryButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
+
+[node name="hover particle" parent="ColorRect/HBoxContainer" instance=ExtResource("3_bi2ty")]
+visible = false
+
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="focus_entered" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
+[connection signal="focus_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_entered" binds= ["MenuButton"]]
+[connection signal="mouse_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
