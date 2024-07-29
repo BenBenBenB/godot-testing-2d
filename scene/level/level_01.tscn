@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://script/entities/mushroom_trigger.gd" id="8_ctgmh"]
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="9_av47y"]
 [ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
-[ext_resource type="PackedScene" uid="uid://5tu3jjanyxhy" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
-[ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
+[ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
+[ext_resource type="PackedScene" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
