@@ -34,12 +34,21 @@ uv = PackedVector2Array(17.1271, 28.9503, 9.41975, 29.9171, 2.03466, 37.1515, 1.
 bones = ["torso", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "torso/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/front_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/front_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="head" type="Polygon2D" parent="polygons"]
-position = Vector2(-11, 7)
+position = Vector2(-11, 4)
 texture = ExtResource("1_h24as")
 skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(1.50716, 6.70686, 16.3527, 10.3994, 29.7664, 0.150715, 35.4936, 1.73323, 36.6993, 7.30972, 36.624, 23.2102, 29.465, 30.2939, 20.3466, 29.3896, 14.0166, 26.8274, 1.73323, 25.1696, 6.55614, 18.0859, -0.0753593, 12.8109)
-uv = PackedVector2Array(1.50716, 6.70686, 16.3527, 10.3994, 29.7664, 0.150715, 35.4936, 1.73323, 36.6993, 7.30972, 36.624, 23.2102, 29.465, 30.2939, 20.3466, 29.3896, 14.0166, 26.8274, 1.73323, 25.1696, 6.55614, 18.0859, -0.0753593, 12.8109)
-bones = ["torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "torso/front_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/front_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+polygon = PackedVector2Array(34.25, 4.5625, 30.9375, 4.625, 27.1875, 6.875, 19.625, 13.5625, 10.3125, 12.0625, 6, 9.75, 2.3125, 10.4375, 2.1875, 14.5, 2.1875, 16.875, 4.4375, 17.8125, 8.25, 21, 33.0625, 30.25, 37.625, 28.875, 38.5, 21.375, 38.1875, 6.1875)
+uv = PackedVector2Array(34.25, 4.5625, 30.9375, 4.625, 27.1875, 6.875, 19.625, 13.5625, 10.3125, 12.0625, 6, 9.75, 2.3125, 10.4375, 2.1875, 14.5, 2.1875, 16.875, 4.4375, 17.8125, 8.25, 21, 33.0625, 30.25, 37.625, 28.875, 38.5, 21.375, 38.1875, 6.1875)
+bones = ["torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "torso/head/jaw", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/front_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/front_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="jaw" type="Polygon2D" parent="polygons/head"]
+show_behind_parent = true
+position = Vector2(2, -54)
+texture = ExtResource("1_h24as")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(28.3125, 66.25, 19.6875, 73.125, 8.4375, 73, 3.3125, 77.0625, 3, 82.6875, 11.625, 82.875, 22.625, 87.75, 29.375, 86.9375, 36.5, 80.4375, 36.25, 70)
+uv = PackedVector2Array(28.3125, 66.25, 19.6875, 73.125, 8.4375, 73, 3.3125, 77.0625, 3, 82.6875, 11.625, 82.875, 22.625, 87.75, 29.375, 86.9375, 36.5, 80.4375, 36.25, 70)
+bones = ["torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/head/jaw", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "torso/front_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_leg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/front_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/back_arm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="front leg" type="Polygon2D" parent="polygons"]
 position = Vector2(-19, 31)
@@ -66,10 +75,14 @@ position = Vector2(19, 56)
 rest = Transform2D(1, 0, 0, 1, 19, 56)
 
 [node name="head" type="Bone2D" parent="Skeleton2D/torso"]
-position = Vector2(-3, -27)
-rotation = -2.88852
+position = Vector2(2, -27)
+rotation = -2.81871
 scale = Vector2(1, 1)
-rest = Transform2D(-0.968148, -0.25038, 0.25038, -0.968148, -3, -27)
+rest = Transform2D(-0.948324, -0.317305, 0.317305, -0.948324, 2, -27)
+
+[node name="jaw" type="Bone2D" parent="Skeleton2D/torso/head"]
+rotation = -0.244346
+rest = Transform2D(0.970296, -0.241922, 0.241922, 0.970296, 0, 0)
 
 [node name="front_leg" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-2, 5)
