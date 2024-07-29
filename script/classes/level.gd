@@ -3,7 +3,8 @@ extends Node
 
 @export var level_id: int
 @onready var audio_stream_player: AudioStreamPlayer = $BackgroundMusic
-@export var scroll_speed: int = 50
+#default is 0, please set speed in inspector
+@export var scroll_speed: int = 0
 
 var _resume_music_at: float = 0.0
 
