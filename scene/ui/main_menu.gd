@@ -29,4 +29,5 @@ func activate() -> void:
 	set_process(true)
 	set_process_input(true)
 	set_process_unhandled_input(true)
-	title_music.play();
+	if not title_music.playing:
+		title_music.play();
