@@ -24,4 +24,3 @@ func go_to_menu():
 func restart_level():
 	LevelManager.restart_level()
 	Transitioned.emit(level_active_screen)
-	
