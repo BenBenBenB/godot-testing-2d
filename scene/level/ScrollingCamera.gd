@@ -40,7 +40,7 @@ func set_camera_limits():
 	var map_limits = tilemap.get_used_rect()
 	var map_cellsize = tilemap.rendering_quadrant_size
 	limit_left = map_limits.position.x * map_cellsize
-	limit_right = map_limits.end.x * map_cellsize
+	limit_right = map_limits.size.x * map_cellsize
 	#The bottom setting fucked up the camera. No idea why
 	#all the numbers and calculation seems right but it's just broken for some reason
 	#but we technically don't need the top and bottom limits so we'll just leave them out
