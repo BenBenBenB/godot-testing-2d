@@ -1,6 +1,8 @@
 class_name Level
 extends Node
 
+signal won_entire_game()
+
 @export var level_id: int
 @onready var audio_stream_player: AudioStreamPlayer = $BackgroundMusic
 #default is 0, please set speed in inspector
