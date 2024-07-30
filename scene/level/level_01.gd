@@ -7,4 +7,4 @@ func _ready() -> void:
 	player_blackhole.stop_scroll.connect(stop_scroll)
 
 func stop_scroll():
-	scroll_speed = 0.0
+	scroll_speed = 0
