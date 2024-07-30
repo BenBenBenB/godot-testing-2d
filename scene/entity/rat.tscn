@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2vvheufpag08"]
+[gd_scene load_steps=13 format=3 uid="uid://d2vvheufpag08"]
 
 [ext_resource type="Texture2D" uid="uid://bdqko7nk7cd3e" path="res://assets/sprite/rat.png" id="1_h24as"]
-[ext_resource type="Texture2D" uid="uid://b1bbx5kt7pg2p" path="res://assets/tileset/level_design.png" id="2_6kgky"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cwoo4"]
 radius = 7.34
@@ -1501,8 +1500,3 @@ shape = SubResource("CapsuleShape2D_vlthp")
 libraries = {
 "": SubResource("AnimationLibrary_iml8x")
 }
-
-[node name="reference" type="Sprite2D" parent="."]
-modulate = Color(0.381703, 0.381703, 0.381703, 1)
-position = Vector2(-19, 218)
-texture = ExtResource("2_6kgky")
