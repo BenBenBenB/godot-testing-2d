@@ -1,6 +1,10 @@
 extends Area2D
 
+signal end_reached
+
 func _on_body_entered(body):
+	end_reached.emit()
+	
 	if body.is_in_group("player"):
 	# remove controls from player
 	# it's not working :|
@@ -8,3 +12,7 @@ func _on_body_entered(body):
 	# move player out of screen
 	# load next level
 		print("You've reached the end")
+	
+	#doesn't work because collision2D does not detect markers
+	#if body.is_in_group("spawner"):
+		#body.stop()
