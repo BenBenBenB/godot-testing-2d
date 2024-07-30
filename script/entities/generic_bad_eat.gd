@@ -9,8 +9,9 @@ var mass: float = -2
 func _ready():
 	set_food_type(food_type)
 
-func _on_body_entered(body: CharacterBody2D):
-	body.consume_mass(mass)
+func _on_body_entered(body):
+	if body is CharacterBody2D:
+		body.consume_mass(mass)
 	queue_free()
 
 func set_food_type(num: int):

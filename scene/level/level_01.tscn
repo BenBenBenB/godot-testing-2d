@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=21 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="13_sd5ys"]
 [ext_resource type="PackedScene" uid="uid://dm72p31hntb2a" path="res://scene/ui/settings.tscn" id="14_8lb5f"]
+[ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
@@ -205,7 +206,19 @@ current_level = NodePath("..")
 spawn = ExtResource("13_sd5ys")
 spawn_rect = Vector2(48, 112)
 max_spawn_cooldown = 3.0
-spawn_freq = 10
+spawn_freq = 6
+
+[node name="bad_spawner" parent="." node_paths=PackedStringArray("camera_ref", "current_level") instance=ExtResource("7_7g4kp")]
+position = Vector2(440, 128)
+gizmo_extents = 48.0
+script = ExtResource("8_ffb7o")
+camera_ref = NodePath("../Camera2D")
+current_level = NodePath("..")
+spawn = ExtResource("14_y86k8")
+spawn_rect = Vector2(48, 112)
+min_spawn_cooldown = 0.5
+max_spawn_cooldown = 3.0
+spawn_freq = 2
 
 [node name="marker" type="Node2D" parent="."]
 position = Vector2(2939, 448)
@@ -231,5 +244,9 @@ visible = false
 visible = false
 
 [connection signal="died_to_death" from="PlayerBlackhole" to="food_spawner" method="stop"]
+[connection signal="died_to_death" from="PlayerBlackhole" to="bad_spawner" method="stop"]
 [connection signal="stop_scroll" from="PlayerBlackhole" to="Camera2D" method="stop_scroll"]
-[connection signal="end_reached" from="end trigger box" to="food_spawner" method="_on_end_trigger_box_end_reached"]
+[connection signal="end_reached" from="end trigger box" to="food_spawner" method="stop"]
+[connection signal="end_reached" from="end trigger box" to="bad_spawner" method="stop"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="food_spawner" method="stop"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="bad_spawner" method="stop"]

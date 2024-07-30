@@ -3,9 +3,9 @@ extends Area2D
 signal end_reached
 
 func _on_body_entered(body):
-	end_reached.emit()
 	
 	if body.is_in_group("player"):
+		end_reached.emit()
 	# remove controls from player
 	# it's not working :|
 		set_process_input(false)
