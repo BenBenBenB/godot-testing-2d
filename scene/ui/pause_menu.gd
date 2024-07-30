@@ -5,7 +5,7 @@ signal Continue()
 signal LevelExit()
 signal LevelRestart()
 
-@export var hover_particle: AnimatedSprite2D
+#@export var hover_particle: AnimatedSprite2D
 @onready var pause_muzak = $PauseMuzak
 
 func deactivate() -> void:
@@ -28,20 +28,20 @@ func activate() -> void:
 	if pause_muzak:
 		pause_muzak.play();
 
-func _on_button_focus_entered(button_name):
-	if hover_particle != null:
-		#get a reference to the button that sent the signal
-		var button = get_node(str("%", button_name))
-		if button:
-			hover_particle.position = Vector2(button.position.x, button.position.y + (button.size.y / 2))
-			#hover_particle.position = button.position
-			hover_particle.visible = true
-			hover_particle.play("default")
-		
-func _on_button_focus_exited():
-	if hover_particle != null:
-		hover_particle.visible = false
-		hover_particle.stop()
+#func _on_button_focus_entered(button_name):
+	#if hover_particle != null:
+		##get a reference to the button that sent the signal
+		#var button = get_node(str("%", button_name))
+		#if button:
+			#hover_particle.position = Vector2(button.position.x, button.position.y + (button.size.y / 2))
+			##hover_particle.position = button.position
+			#hover_particle.visible = true
+			#hover_particle.play("default")
+		#
+#func _on_button_focus_exited():
+	#if hover_particle != null:
+		#hover_particle.visible = false
+		#hover_particle.stop()
 
 func _on_continue_button_pressed():
 	deactivate()

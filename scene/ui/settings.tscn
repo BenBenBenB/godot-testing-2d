@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm72p31hntb2a"]
+[gd_scene load_steps=5 format=3 uid="uid://dm72p31hntb2a"]
 
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_gy3fc"]
 [ext_resource type="Script" path="res://scene/ui/settings.gd" id="2_i0q3i"]
 [ext_resource type="Texture2D" uid="uid://qij8po5yl3e" path="res://assets/tileset/UI sprites.png" id="2_xp3aw"]
+[ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="4_hrjk1"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -109,6 +110,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
+
+[node name="hover particle" parent="NinePatchRect/VBoxContainer" instance=ExtResource("4_hrjk1")]
+visible = false
 
 [connection signal="mouse_exited" from="NinePatchRect/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_mouse_exited"]
 [connection signal="value_changed" from="NinePatchRect/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
