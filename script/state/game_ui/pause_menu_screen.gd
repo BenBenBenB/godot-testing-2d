@@ -7,6 +7,7 @@ class_name PauseMenuScreen
 
 @onready var main_menu_screen = $"../MainMenuScreen"
 @onready var level_active_screen = $"../LevelActiveScreen"
+@onready var death_screen = $"../DeathScreen"
 
 func _ready():
 	pause_menu.Continue.connect(continue_level)
@@ -24,6 +25,12 @@ func exit():
 func update(_delta):
 	if Input.is_action_just_pressed("pause"):
 		Transitioned.emit(level_active_screen)
+	var player = get_tree().get_first_node_in_group("Player")
+	if is_instance_of(player, PlayerBlackhole) and player.is_dead():
+		player_died()
+
+func player_died():
+	Transitioned.emit(death_screen)
 
 func continue_level():
 	pause_timer.start()

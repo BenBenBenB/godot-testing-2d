@@ -7,10 +7,10 @@ class_name SettingsScreen
 @onready var main_menu_screen = $"../MainMenuScreen"
 
 func enter():
-	settings.show()
+	settings.activate()
 	
 func exit():
-	settings.hide()
+	settings.deactivate()
 
 func update(_delta):
 	if Input.is_action_pressed("pause"):
