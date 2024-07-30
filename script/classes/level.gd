@@ -24,3 +24,6 @@ func pause() -> void:
 	
 func unpause() -> void:
 	audio_stream_player.play(_resume_music_at)
+
+func stop_music():
+	audio_stream_player.stop()

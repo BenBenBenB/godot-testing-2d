@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=24 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -8,12 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://b03hqib6trlwm" path="res://assets/tileset/shroom_background.png" id="3_4403k"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="5_arufi"]
 [ext_resource type="PackedScene" uid="uid://dqnurckrapc3f" path="res://scene/entity/trigger_box.tscn" id="6_ietob"]
+[ext_resource type="PackedScene" uid="uid://coiekxofsoka6" path="res://spawner.tscn" id="7_7g4kp"]
+[ext_resource type="Script" path="res://script/entities/end_trigger.gd" id="7_fcsdi"]
 [ext_resource type="Script" path="res://script/entities/mushroom_trigger.gd" id="8_ctgmh"]
+[ext_resource type="Script" path="res://food_spawner.gd" id="8_ffb7o"]
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="9_av47y"]
-[ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
 [ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
+[ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="13_sd5ys"]
+[ext_resource type="PackedScene" uid="uid://dm72p31hntb2a" path="res://scene/ui/settings.tscn" id="14_8lb5f"]
 [ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
+[ext_resource type="Script" path="res://init_vomit_spawner.gd" id="15_wv41f"]
 [ext_resource type="PackedScene" uid="uid://38vv3dma8qfv" path="res://scene/entity/generic_mushroom.tscn" id="15_y3a7g"]
+[ext_resource type="Script" path="res://vomit_spawner.gd" id="16_5h5jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
@@ -193,24 +199,89 @@ script = ExtResource("8_ctgmh")
 camera = NodePath("../Camera2D")
 marker = NodePath("../marker")
 
+[node name="food_spawner" parent="." node_paths=PackedStringArray("camera_ref", "current_level") instance=ExtResource("7_7g4kp")]
+position = Vector2(440, 128)
+gizmo_extents = 48.0
+script = ExtResource("8_ffb7o")
+camera_ref = NodePath("../Camera2D")
+current_level = NodePath("..")
+spawn = ExtResource("13_sd5ys")
+spawn_rect = Vector2(48, 112)
+max_spawn_cooldown = 3.0
+spawn_num = 5
+
+[node name="bad_spawner" parent="." node_paths=PackedStringArray("camera_ref", "current_level") instance=ExtResource("7_7g4kp")]
+position = Vector2(440, 128)
+gizmo_extents = 48.0
+script = ExtResource("8_ffb7o")
+camera_ref = NodePath("../Camera2D")
+current_level = NodePath("..")
+spawn = ExtResource("14_y86k8")
+spawn_rect = Vector2(48, 112)
+min_spawn_cooldown = 0.5
+max_spawn_cooldown = 3.0
+spawn_num = 2
+
+[node name="init_food_vomit" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(286.6, 128)
+gizmo_extents = 173.6
+script = ExtResource("15_wv41f")
+spawn = ExtResource("13_sd5ys")
+spawn_rect = Vector2(170, 112)
+spawn_num = 25
+once_only = true
+
+[node name="init_bad_vomit" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(286.6, 128)
+gizmo_extents = 48.0
+script = ExtResource("15_wv41f")
+spawn = ExtResource("14_y86k8")
+spawn_rect = Vector2(170, 112)
+spawn_num = 12
+once_only = true
+
+[node name="mushroom_vomiter" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(2883, 418)
+gizmo_extents = 100.0
+script = ExtResource("16_5h5jo")
+variance = 4
+spawn = ExtResource("15_y3a7g")
+spawn_radius = 110.0
+spawn_num = 15
+once_only = true
+
+[node name="mushroom_vomiter2" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(3151, 447)
+gizmo_extents = 152.0
+script = ExtResource("16_5h5jo")
+variance = 5
+spawn = ExtResource("15_y3a7g")
+spawn_rect = Vector2(152, 110)
+spawn_num = 25
+once_only = true
+
+[node name="mushroom_vomiter3" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(3441, 518)
+gizmo_extents = 147.5
+script = ExtResource("16_5h5jo")
+variance = 3
+spawn = ExtResource("15_y3a7g")
+spawn_rect = Vector2(148, 54)
+spawn_num = 12
+once_only = true
+
+[node name="mushroom_vomiter4" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(3670, 450)
+gizmo_extents = 136.0
+script = ExtResource("16_5h5jo")
+variance = 3
+spawn = ExtResource("15_y3a7g")
+spawn_rect = Vector2(138, 66)
+spawn_num = 15
+once_only = true
+
 [node name="marker" type="Node2D" parent="."]
 position = Vector2(2939, 448)
-
-[node name="TurretStraightLine" parent="." instance=ExtResource("10_iqs3h")]
-position = Vector2(247, 179)
-rotation = -0.883866
-
-[node name="TurretStraightLine2" parent="." instance=ExtResource("10_iqs3h")]
-position = Vector2(233, 178)
-rotation = -0.883866
-
-[node name="TurretStraightLine3" parent="." instance=ExtResource("10_iqs3h")]
-position = Vector2(222, 178)
-rotation = -0.883866
-
-[node name="TurretStraightLine4" parent="." instance=ExtResource("10_iqs3h")]
-position = Vector2(209, 178)
-rotation = -0.883866
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -229,40 +300,17 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="Generic bad eat" parent="." instance=ExtResource("14_y86k8")]
-position = Vector2(188, 145)
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("14_8lb5f")]
+visible = false
 
-[node name="Generic bad eat2" parent="." instance=ExtResource("14_y86k8")]
-position = Vector2(266, 219)
-
-[node name="Generic bad eat3" parent="." instance=ExtResource("14_y86k8")]
-position = Vector2(281, 124)
-
-[node name="Generic bad eat4" parent="." instance=ExtResource("14_y86k8")]
-position = Vector2(378, 99)
-
-[node name="Generic bad eat5" parent="." instance=ExtResource("14_y86k8")]
-position = Vector2(389, 168)
-
-[node name="Generic mushroom" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(2829, 347)
-
-[node name="Generic mushroom2" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(2828, 409)
-
-[node name="Generic mushroom3" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(2860, 490)
-
-[node name="Generic mushroom4" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(2921, 436)
-
-[node name="Generic mushroom5" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(2895, 375)
-
-[node name="Generic mushroom6" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(2948, 494)
-
-[node name="Generic mushroom7" parent="." instance=ExtResource("15_y3a7g")]
-position = Vector2(3008, 426)
-
-[connection signal="body_entered" from="end trigger box" to="." method="_on_end_trigger_box_body_entered"]
+[connection signal="died_to_death" from="PlayerBlackhole" to="food_spawner" method="stop"]
+[connection signal="died_to_death" from="PlayerBlackhole" to="bad_spawner" method="stop"]
+[connection signal="stop_scroll" from="PlayerBlackhole" to="Camera2D" method="stop_scroll"]
+[connection signal="end_reached" from="end trigger box" to="food_spawner" method="stop"]
+[connection signal="end_reached" from="end trigger box" to="bad_spawner" method="stop"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="food_spawner" method="stop"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="bad_spawner" method="stop"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter" method="vomit_spawn"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter2" method="vomit_spawn"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter3" method="vomit_spawn"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter4" method="vomit_spawn"]

@@ -5,7 +5,7 @@ signal Transitioned(new_state_name: StringName)
 
 func enter() -> void:
 	pass
-	
+
 func exit() -> void:
 	pass
 	

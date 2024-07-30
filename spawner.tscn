@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://coiekxofsoka6"]
+
+[node name="Spawner" type="Marker2D" groups=["spawner"]]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

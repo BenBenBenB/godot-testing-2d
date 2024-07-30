@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/entities/generic_bad_eat.gd" id="1_2go68"]
 [ext_resource type="Shader" path="res://resource/outline.gdshader" id="1_ckfpo"]
-[ext_resource type="Texture2D" uid="uid://bi3rxtrks1vp7" path="res://art/sprite/bad_sprites.png" id="2_6bgde"]
+[ext_resource type="Texture2D" uid="uid://bi3rxtrks1vp7" path="res://assets/sprite/bad_sprites.png" id="2_6bgde"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7njh3"]
 radius = 7.0

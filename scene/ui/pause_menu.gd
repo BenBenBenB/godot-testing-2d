@@ -4,8 +4,9 @@ class_name PauseMenu
 signal Continue()
 signal LevelExit()
 signal LevelRestart()
+signal Settings()
 
-@export var hover_particle: AnimatedSprite2D
+#@export var hover_particle: AnimatedSprite2D
 @onready var pause_muzak = $PauseMuzak
 
 var _resume_music_at: float = 0.0
@@ -31,21 +32,6 @@ func activate() -> void:
 	if pause_muzak:
 		pause_muzak.play(_resume_music_at);
 
-func _on_button_focus_entered(button_name):
-	if hover_particle != null:
-		#get a reference to the button that sent the signal
-		var button = get_node(str("%", button_name))
-		if button:
-			hover_particle.position = Vector2(button.position.x, button.position.y + (button.size.y / 2))
-			#hover_particle.position = button.position
-			hover_particle.visible = true
-			hover_particle.play("default")
-		
-func _on_button_focus_exited():
-	if hover_particle != null:
-		hover_particle.visible = false
-		hover_particle.stop()
-
 func _on_continue_button_pressed():
 	deactivate()
 	Continue.emit()
@@ -60,3 +46,7 @@ func _on_retry_button_pressed():
 
 func _on_pause_muzak_finished():
 	pause_muzak.play()
+
+func _on_settings_button_pressed():
+	deactivate()
+	Settings.emit()

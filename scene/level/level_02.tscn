@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c54m08gugew1i"]
+[gd_scene load_steps=11 format=3 uid="uid://c54m08gugew1i"]
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
 [ext_resource type="Texture2D" uid="uid://dvr17f3hjsdrt" path="res://assets/tileset/sewer_bg.png" id="3_7m8lo"]
-[ext_resource type="PackedScene" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
+[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
 [ext_resource type="Texture2D" uid="uid://d1jmtjxxkrq7j" path="res://assets/tileset/sewer_assets.png" id="3_io4od"]
 [ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - rat-boss_mad scientist music.mp3" id="4_iqnhy"]
 [ext_resource type="PackedScene" uid="uid://d2vvheufpag08" path="res://scene/entity/rat.tscn" id="6_kdau6"]
+[ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="7_5g4te"]
+[ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="8_e2xxy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1eiqf"]
 texture = ExtResource("3_io4od")
@@ -97,3 +99,11 @@ current_level = NodePath("..")
 [node name="Rat" parent="." instance=ExtResource("6_kdau6")]
 position = Vector2(298, 8)
 scale = Vector2(2.8, 2.8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("7_5g4te")]
+visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_e2xxy")]
+visible = false

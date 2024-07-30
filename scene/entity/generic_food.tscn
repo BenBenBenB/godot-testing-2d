@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://btofm7mdpmx3r"]
 
-[ext_resource type="Texture2D" uid="uid://cr3kw8l3rm3pk" path="res://art/sprite/Science_tools.png" id="1_2ft41"]
+[ext_resource type="Texture2D" uid="uid://cr3kw8l3rm3pk" path="res://assets/sprite/Science_tools.png" id="1_2ft41"]
 [ext_resource type="Script" path="res://script/entities/generic_food.gd" id="1_ceov4"]
 [ext_resource type="Shader" path="res://resource/outline.gdshader" id="2_tdav4"]
 

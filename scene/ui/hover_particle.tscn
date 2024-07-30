@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg2matkx410x5"]
+[gd_scene load_steps=9 format=3 uid="uid://cg2matkx410x5"]
 
 [ext_resource type="Texture2D" uid="uid://dueoobtmouswf" path="res://assets/sprite/antimatter_particles.png" id="1_hklo7"]
+[ext_resource type="Script" path="res://scene/ui/hover_particle.gd" id="2_aid63"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p08x2"]
 atlas = ExtResource("1_hklo7")
@@ -49,3 +50,6 @@ animations = [{
 z_index = 10
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_op5i2")
+frame = 3
+frame_progress = 0.844623
+script = ExtResource("2_aid63")
