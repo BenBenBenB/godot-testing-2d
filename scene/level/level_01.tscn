@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=24 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="13_sd5ys"]
 [ext_resource type="PackedScene" uid="uid://dm72p31hntb2a" path="res://scene/ui/settings.tscn" id="14_8lb5f"]
 [ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
+[ext_resource type="Script" path="res://init_vomit_spawner.gd" id="15_wv41f"]
+[ext_resource type="PackedScene" uid="uid://38vv3dma8qfv" path="res://scene/entity/generic_mushroom.tscn" id="15_y3a7g"]
+[ext_resource type="Script" path="res://vomit_spawner.gd" id="16_5h5jo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdtw8"]
 texture = ExtResource("2_sb0f7")
@@ -206,7 +209,7 @@ current_level = NodePath("..")
 spawn = ExtResource("13_sd5ys")
 spawn_rect = Vector2(48, 112)
 max_spawn_cooldown = 3.0
-spawn_freq = 6
+spawn_num = 5
 
 [node name="bad_spawner" parent="." node_paths=PackedStringArray("camera_ref", "current_level") instance=ExtResource("7_7g4kp")]
 position = Vector2(440, 128)
@@ -218,7 +221,65 @@ spawn = ExtResource("14_y86k8")
 spawn_rect = Vector2(48, 112)
 min_spawn_cooldown = 0.5
 max_spawn_cooldown = 3.0
-spawn_freq = 2
+spawn_num = 2
+
+[node name="init_food_vomit" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(286.6, 128)
+gizmo_extents = 173.6
+script = ExtResource("15_wv41f")
+spawn = ExtResource("13_sd5ys")
+spawn_rect = Vector2(170, 112)
+spawn_num = 25
+once_only = true
+
+[node name="init_bad_vomit" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(286.6, 128)
+gizmo_extents = 48.0
+script = ExtResource("15_wv41f")
+spawn = ExtResource("14_y86k8")
+spawn_rect = Vector2(170, 112)
+spawn_num = 12
+once_only = true
+
+[node name="mushroom_vomiter" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(2883, 418)
+gizmo_extents = 100.0
+script = ExtResource("16_5h5jo")
+variance = 4
+spawn = ExtResource("15_y3a7g")
+spawn_radius = 110.0
+spawn_num = 15
+once_only = true
+
+[node name="mushroom_vomiter2" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(3151, 447)
+gizmo_extents = 152.0
+script = ExtResource("16_5h5jo")
+variance = 5
+spawn = ExtResource("15_y3a7g")
+spawn_rect = Vector2(152, 110)
+spawn_num = 25
+once_only = true
+
+[node name="mushroom_vomiter3" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(3441, 518)
+gizmo_extents = 147.5
+script = ExtResource("16_5h5jo")
+variance = 3
+spawn = ExtResource("15_y3a7g")
+spawn_rect = Vector2(148, 54)
+spawn_num = 12
+once_only = true
+
+[node name="mushroom_vomiter4" parent="." instance=ExtResource("7_7g4kp")]
+position = Vector2(3670, 450)
+gizmo_extents = 136.0
+script = ExtResource("16_5h5jo")
+variance = 3
+spawn = ExtResource("15_y3a7g")
+spawn_rect = Vector2(138, 66)
+spawn_num = 15
+once_only = true
 
 [node name="marker" type="Node2D" parent="."]
 position = Vector2(2939, 448)
@@ -250,3 +311,7 @@ visible = false
 [connection signal="end_reached" from="end trigger box" to="bad_spawner" method="stop"]
 [connection signal="found_mush_room" from="mushroom trigger box" to="food_spawner" method="stop"]
 [connection signal="found_mush_room" from="mushroom trigger box" to="bad_spawner" method="stop"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter" method="vomit_spawn"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter2" method="vomit_spawn"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter3" method="vomit_spawn"]
+[connection signal="found_mush_room" from="mushroom trigger box" to="mushroom_vomiter4" method="vomit_spawn"]

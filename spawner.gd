@@ -8,9 +8,13 @@ extends Marker2D
 @export var min_spawn_cooldown : float = 1.0
 @export var max_spawn_cooldown : float = 1.0
 
-@export var spawn_freq : int = 1
+@export var spawn_num : int = 1
+@export var once_only : bool = false
 
 @onready var timer = $Timer
+
+func _ready():
+	pass
 
 #spawns at spawner position
 func point_spawn():
@@ -19,8 +23,12 @@ func point_spawn():
 	spawned.global_position = global_position
 	return spawned
 
-func rect_spawn():
-	var spawned = spawn.instantiate()
+func rect_spawn(packed_scene : PackedScene = null):
+	var spawned
+	if !packed_scene:
+		spawned = spawn.instantiate()
+	else:
+		spawned = packed_scene.instantiate()
 	owner.add_child(spawned)
 	spawned.global_position.x = randf_range(global_position.x - spawn_rect.x, global_position.x + spawn_rect.x)
 	spawned.global_position.y = randf_range(global_position.y - spawn_rect.y, global_position.y + spawn_rect.y)

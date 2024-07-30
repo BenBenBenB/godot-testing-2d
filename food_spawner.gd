@@ -22,10 +22,11 @@ func _process(delta):
 	
 
 func spawn_food():
-	for i in range(spawn_freq):
+	for i in range(spawn_num):
 		rect_spawn()
 	
-	start_spawn_cooldown()
+	if !once_only:
+		start_spawn_cooldown()
 	
 func stop():
 	stop_spawning()

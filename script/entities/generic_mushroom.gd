@@ -12,8 +12,9 @@ func _ready():
 func _process(_delta):
 	anim_sprite.play(shroom_anim)
 
-func _on_body_entered(body: CharacterBody2D):
-	body.consume_mass(mass)
+func _on_body_entered(body):
+	if body is CharacterBody2D:
+		body.consume_mass(mass)
 	queue_free()
 
 func set_food_type(num : int):
