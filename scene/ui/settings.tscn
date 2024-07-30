@@ -95,7 +95,7 @@ max_value = 1.0
 step = 0.005
 value = 1.0
 
-[node name="CheckBox" type="Button" parent="NinePatchRect/VBoxContainer"]
+[node name="brightness_button" type="Button" parent="NinePatchRect/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -104,7 +104,14 @@ toggle_mode = true
 button_pressed = true
 text = "Brightness"
 
+[node name="back_button" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
 [connection signal="mouse_exited" from="NinePatchRect/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_mouse_exited"]
 [connection signal="value_changed" from="NinePatchRect/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="mouse_exited" from="NinePatchRect/VBoxContainer/GridContainer/SfxSlider" to="." method="_on_sfx_slider_mouse_exited"]
 [connection signal="value_changed" from="NinePatchRect/VBoxContainer/GridContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/back_button" to="." method="_on_back_button_pressed"]

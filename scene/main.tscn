@@ -59,10 +59,10 @@ process_mode = 3
 process_mode = 0
 visible = false
 
-[node name="DeathMenu" parent="UIMain" instance=ExtResource("5_aw3yp")]
+[node name="Settings" parent="UIMain" instance=ExtResource("6_pipb7")]
 visible = false
 
-[node name="Settings" parent="UIMain" instance=ExtResource("6_pipb7")]
+[node name="DeathMenu" parent="UIMain" instance=ExtResource("5_aw3yp")]
 visible = false
 
 [node name="StateMachineUI" type="Node" parent="." node_paths=PackedStringArray("current_state")]

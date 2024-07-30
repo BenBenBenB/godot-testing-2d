@@ -13,6 +13,8 @@ func _ready():
 	death_menu.ExitLevel.connect(go_to_menu)
 
 func enter():
+	if LevelManager.loaded_level:
+		LevelManager.loaded_level.stop_music()
 	death_menu.activate()
 	
 func exit():

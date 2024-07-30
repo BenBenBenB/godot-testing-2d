@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
 [ext_resource type="Texture2D" uid="uid://dvr17f3hjsdrt" path="res://assets/tileset/sewer_bg.png" id="3_7m8lo"]
-[ext_resource type="PackedScene" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
+[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
 [ext_resource type="Texture2D" uid="uid://d1jmtjxxkrq7j" path="res://assets/tileset/sewer_assets.png" id="3_io4od"]
 [ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - rat-boss_mad scientist music.mp3" id="4_iqnhy"]
 [ext_resource type="PackedScene" uid="uid://d2vvheufpag08" path="res://scene/entity/rat.tscn" id="6_kdau6"]

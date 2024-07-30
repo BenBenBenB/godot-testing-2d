@@ -266,3 +266,5 @@ position = Vector2(2948, 494)
 
 [node name="Generic mushroom7" parent="." instance=ExtResource("15_y3a7g")]
 position = Vector2(3008, 426)
+
+[connection signal="stop_scroll" from="PlayerBlackhole" to="Camera2D" method="stop_scroll"]

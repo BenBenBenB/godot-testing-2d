@@ -6,6 +6,9 @@ class_name SettingsScreen
 
 @onready var main_menu_screen = $"../MainMenuScreen"
 
+func _ready():
+	settings.close_settings.connect(close_screen)
+
 func enter():
 	settings.show()
 	
@@ -14,5 +17,7 @@ func exit():
 
 func update(_delta):
 	if Input.is_action_pressed("pause"):
-		Transitioned.emit(main_menu_screen)
-	
+		close_screen()
+
+func close_screen():
+	Transitioned.emit(main_menu_screen)
