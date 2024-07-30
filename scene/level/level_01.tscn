@@ -122,6 +122,11 @@ level_id = 1
 stream = ExtResource("2_e4ubd")
 bus = &"Music"
 
+[node name="Positions" type="Node" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Positions"]
+position = Vector2(74, 138)
+
 [node name="looping BG" type="Sprite2D" parent="."]
 modulate = Color(0.784314, 0.784314, 0.843137, 1)
 show_behind_parent = true
