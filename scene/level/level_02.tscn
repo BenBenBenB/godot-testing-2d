@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c54m08gugew1i"]
+[gd_scene load_steps=8 format=3 uid="uid://c54m08gugew1i"]
 
 [ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
+[ext_resource type="Texture2D" uid="uid://dvr17f3hjsdrt" path="res://assets/tileset/sewer_bg.png" id="3_7m8lo"]
+[ext_resource type="PackedScene" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
 [ext_resource type="Texture2D" uid="uid://d1jmtjxxkrq7j" path="res://assets/tileset/sewer_assets.png" id="3_io4od"]
-[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
-[ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="3_l51dj"]
 [ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - rat-boss_mad scientist music.mp3" id="4_iqnhy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1eiqf"]
@@ -59,6 +59,15 @@ level_id = 2
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_iqnhy")
+
+[node name="bg" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -10
+texture_repeat = 2
+position = Vector2(200, 126)
+texture = ExtResource("3_7m8lo")
+region_enabled = true
+region_rect = Rect2(0, 0, 723, 281)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pt1ii")
