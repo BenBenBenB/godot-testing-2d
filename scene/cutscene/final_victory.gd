@@ -1,5 +1,8 @@
-extends Node2D
+extends Level
 
+signal EndGame()
+
+@onready var victory_theme = $VictoryTheme
 @onready var player_blackhole = $PlayerBlackhole
 @onready var earf = $Earf
 @onready var start_timer = $StartTimer
@@ -9,6 +12,7 @@ var scale_per_second: float = 1.0
 
 func _ready():
 	player_blackhole.dead = true
+	victory_theme.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,3 +25,6 @@ func _process(delta):
 		player_blackhole.scale += Vector2(deltaScale, deltaScale)
 	else:
 		earf.visible = false
+
+func _on_end_game_button_button_up():
+	EndGame.emit()

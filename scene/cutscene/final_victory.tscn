@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpxbt136fataa"]
+[gd_scene load_steps=6 format=3 uid="uid://dpxbt136fataa"]
 
 [ext_resource type="Script" path="res://scene/cutscene/final_victory.gd" id="1_n6lg4"]
+[ext_resource type="AudioStream" uid="uid://dsb85bjxex0dc" path="res://assets/music/03 - menu_game jam test 1.mp3" id="2_uhr00"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="2_vh8ti"]
 [ext_resource type="Texture2D" uid="uid://b1fjqp2ah0ych" path="res://assets/backgrounds/earf.png" id="3_vgv55"]
 [ext_resource type="Texture2D" uid="uid://b6wdoundf0ys4" path="res://assets/backgrounds/moon.png" id="4_idmrm"]
 
-[node name="FinalVictory" type="Node2D"]
-z_index = 1
+[node name="FinalVictory" type="Node"]
 script = ExtResource("1_n6lg4")
+
+[node name="VictoryTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uhr00")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
@@ -48,3 +51,13 @@ text = "You win!"
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="EndGameButton" type="Button" parent="."]
+z_index = 5
+offset_left = 235.0
+offset_top = 318.0
+offset_right = 349.0
+offset_bottom = 349.0
+text = "Back to Menu"
+
+[connection signal="button_up" from="EndGameButton" to="." method="_on_end_game_button_button_up"]

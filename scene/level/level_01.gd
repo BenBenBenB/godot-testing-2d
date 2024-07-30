@@ -9,4 +9,4 @@ func _ready() -> void:
 	player_blackhole.position = player_start.position
 
 func stop_scroll():
-	scroll_speed = 0.0
+	scroll_speed = 0
