@@ -1444,17 +1444,18 @@ bones = ["torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/head"
 [node name="torso" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(17.115, 59)
 rest = Transform2D(1, 0, 0, 1, 19, 56)
-editor_settings/show_bone_gizmo = false
 
 [node name="head" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(2.04221, -29.115)
 rest = Transform2D(1, 0, 0, 1, 2, -27)
-editor_settings/show_bone_gizmo = false
 
 [node name="jaw" type="Bone2D" parent="Skeleton2D/torso/head"]
 rotation = -2.84489
+scale = Vector2(1, 1)
 rest = Transform2D(-0.956305, -0.292372, 0.292372, -0.956305, 0, 0)
-editor_settings/show_bone_gizmo = false
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = -14.0
 
 [node name="Area2D" type="Area2D" parent="Skeleton2D/torso/head"]
 
@@ -1466,7 +1467,9 @@ shape = SubResource("CapsuleShape2D_cwoo4")
 [node name="front_leg" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-1.96915, -0.349908)
 rest = Transform2D(1, 0, 0, 1, -2, 5)
-editor_settings/show_bone_gizmo = false
+auto_calculate_length_and_angle = false
+length = 12.0
+bone_angle = 90.0
 
 [node name="Area2D" type="Area2D" parent="Skeleton2D/torso/front_leg"]
 
@@ -1477,17 +1480,23 @@ shape = SubResource("RectangleShape2D_c3xux")
 [node name="back_leg" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-0.0896862, -5.21106)
 rest = Transform2D(1, 0, 0, 1, -2, 1)
-editor_settings/show_bone_gizmo = false
+auto_calculate_length_and_angle = false
+length = 12.0
+bone_angle = 90.0
 
 [node name="front_arm" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-4.29227, -19.115)
 rest = Transform2D(1, 0, 0, 1, -3, -16)
-editor_settings/show_bone_gizmo = false
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 94.0
 
 [node name="back_arm" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-0.638748, -24.115)
 rest = Transform2D(1, 0, 0, 1, -3, -18)
-editor_settings/show_bone_gizmo = false
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 94.0
 
 [node name="Area2D" type="Area2D" parent="Skeleton2D/torso"]
 
