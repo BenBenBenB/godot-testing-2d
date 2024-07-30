@@ -15,7 +15,7 @@ func _ready():
 	pause_menu.LevelRestart.connect(restart_level)
 	pause_menu.Settings.connect(show_settings)
 
-func enter():
+func enter(prev_state = null):
 	get_tree().paused = true
 	pause_menu.activate()
 
@@ -41,3 +41,4 @@ func go_to_main_menu():
 
 func show_settings():
 	Transitioned.emit(settings_screen)
+	pause_menu.deactivate()

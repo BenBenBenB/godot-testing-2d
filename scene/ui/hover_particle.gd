@@ -5,7 +5,7 @@ var button_list : Array
 func _ready():
 	button_list = get_node("..").find_children("*utton","Button")
 	for i in range(button_list.size()):
-		print(button_list[i])
+		#print(button_list[i])
 		button_list[i].focus_entered.connect(_on_button_focus_entered.bind(i))
 		button_list[i].mouse_entered.connect(_on_button_focus_entered.bind(i))
 		button_list[i].focus_exited.connect(_on_button_focus_exited)

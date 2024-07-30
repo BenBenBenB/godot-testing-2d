@@ -12,7 +12,7 @@ func _ready():
 	death_menu.RestartLevel.connect(restart_level)
 	death_menu.ExitLevel.connect(go_to_menu)
 
-func enter():
+func enter(prev_state = null):
 	if LevelManager.loaded_level:
 		LevelManager.loaded_level.stop_music()
 	death_menu.activate()

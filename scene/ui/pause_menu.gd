@@ -29,21 +29,6 @@ func activate() -> void:
 	if pause_muzak:
 		pause_muzak.play();
 
-#func _on_button_focus_entered(button_name):
-	#if hover_particle != null:
-		##get a reference to the button that sent the signal
-		#var button = get_node(str("%", button_name))
-		#if button:
-			#hover_particle.position = Vector2(button.position.x, button.position.y + (button.size.y / 2))
-			##hover_particle.position = button.position
-			#hover_particle.visible = true
-			#hover_particle.play("default")
-		#
-#func _on_button_focus_exited():
-	#if hover_particle != null:
-		#hover_particle.visible = false
-		#hover_particle.stop()
-
 func _on_continue_button_pressed():
 	deactivate()
 	Continue.emit()
@@ -57,6 +42,5 @@ func _on_retry_button_pressed():
 	LevelRestart.emit()
 
 func _on_settings_button_pressed():
-	#hide pause screen but don't unpause game
-	hide()
+	deactivate()
 	Settings.emit()

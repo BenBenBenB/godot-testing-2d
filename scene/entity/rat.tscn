@@ -1451,7 +1451,6 @@ rest = Transform2D(1, 0, 0, 1, 2, -27)
 
 [node name="jaw" type="Bone2D" parent="Skeleton2D/torso/head"]
 rotation = -2.84489
-scale = Vector2(1, 1)
 rest = Transform2D(-0.956305, -0.292372, 0.292372, -0.956305, 0, 0)
 auto_calculate_length_and_angle = false
 length = 16.0

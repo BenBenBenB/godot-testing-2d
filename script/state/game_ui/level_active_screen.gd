@@ -16,7 +16,7 @@ func _can_pause():
 	return pause_timer.is_stopped()
 
 
-func enter():
+func enter(prev_state = null):
 	var level = get_tree().get_first_node_in_group("level")
 	if level and level.won_entire_game \
 		and not level.won_entire_game.is_connected(player_won_game):

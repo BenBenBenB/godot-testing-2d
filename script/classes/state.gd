@@ -3,9 +3,9 @@ extends Node
 
 signal Transitioned(new_state_name: StringName)
 
-func enter() -> void:
+func enter(prev_state = null) -> void:
 	pass
-	
+
 func exit() -> void:
 	pass
 	

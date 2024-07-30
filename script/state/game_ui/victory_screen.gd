@@ -5,7 +5,7 @@ class_name VictoryScreen
 @onready var main_menu_screen = $"../MainMenuScreen"
 
 
-func enter():
+func enter(prev_state = null):
 	LevelManager.unload_level()
 	LevelManager.load_level(-1)
 	LevelManager.loaded_level.EndGame.connect(back_to_menu)

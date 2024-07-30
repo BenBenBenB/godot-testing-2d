@@ -2,6 +2,7 @@ class_name StateMachine
 extends Node
 
 @export var current_state: State
+#@export var prev_state : State
 var states: Dictionary = {}
 
 func _ready():
@@ -26,7 +27,9 @@ func on_child_transitioned(new_state_in: State) -> void:
 		push_warning("Called transition to a state that does not exist.")
 	elif new_state != current_state:
 		current_state.exit()
-		new_state.enter()
+		new_state.enter(current_state.name)
+		
+		#prev_state = current_state
 		current_state = new_state
 	else:
 		push_warning("Called transition to same state.")
