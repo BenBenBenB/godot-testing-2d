@@ -18,7 +18,8 @@ func _can_pause():
 
 func enter():
 	var level = get_tree().get_first_node_in_group("level")
-	if level and level.won_entire_game:
+	if level and level.won_entire_game \
+		and not level.won_entire_game.is_connected(player_won_game):
 		level.won_entire_game.connect(player_won_game)
 
 func exit():
