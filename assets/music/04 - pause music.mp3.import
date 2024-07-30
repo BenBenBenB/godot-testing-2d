@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nbdwvvxi377x"
+path="res://.godot/imported/04 - pause music.mp3-172a2e5138c5e4dc3d37b092c6d77c87.mp3str"
+
+[deps]
+
+source_file="res://assets/music/04 - pause music.mp3"
+dest_files=["res://.godot/imported/04 - pause music.mp3-172a2e5138c5e4dc3d37b092c6d77c87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

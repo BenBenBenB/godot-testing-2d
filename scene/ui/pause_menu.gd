@@ -8,12 +8,15 @@ signal LevelRestart()
 @export var hover_particle: AnimatedSprite2D
 @onready var pause_muzak = $PauseMuzak
 
+var _resume_music_at: float = 0.0
+
 func deactivate() -> void:
 	hide()
 	set_process(false)
 	set_process_input(false)
 	set_process_unhandled_input(false)
 	if pause_muzak:
+		_resume_music_at = pause_muzak.get_playback_position()
 		pause_muzak.stop();
 	get_tree().paused = false
 	LevelManager.unpause_level()
@@ -26,7 +29,7 @@ func activate() -> void:
 	set_process_input(true)
 	set_process_unhandled_input(true)
 	if pause_muzak:
-		pause_muzak.play();
+		pause_muzak.play(_resume_music_at);
 
 func _on_button_focus_entered(button_name):
 	if hover_particle != null:
@@ -54,3 +57,6 @@ func _on_menu_button_pressed():
 func _on_retry_button_pressed():
 	deactivate()
 	LevelRestart.emit()
+
+func _on_pause_muzak_finished():
+	pause_muzak.play()

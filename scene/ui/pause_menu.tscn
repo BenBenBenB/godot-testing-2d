@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bddy0xye4soiv"]
+[gd_scene load_steps=5 format=3 uid="uid://bddy0xye4soiv"]
 
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_54ykf"]
 [ext_resource type="Script" path="res://scene/ui/pause_menu.gd" id="2_6pl23"]
+[ext_resource type="AudioStream" uid="uid://nbdwvvxi377x" path="res://assets/music/04 - pause music.mp3" id="3_8dmf6"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_45hui"]
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("hover_particle")]
@@ -17,6 +18,7 @@ script = ExtResource("2_6pl23")
 hover_particle = NodePath("ColorRect/HBoxContainer/hover particle")
 
 [node name="PauseMuzak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8dmf6")
 bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -86,6 +88,7 @@ text = "Main Menu"
 [node name="hover particle" parent="ColorRect/HBoxContainer" instance=ExtResource("3_45hui")]
 visible = false
 
+[connection signal="finished" from="PauseMuzak" to="." method="_on_pause_muzak_finished"]
 [connection signal="focus_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
 [connection signal="focus_exited" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_exited"]
 [connection signal="mouse_entered" from="ColorRect/HBoxContainer/RetryButton" to="." method="_on_button_focus_entered" binds= ["RetryButton"]]
