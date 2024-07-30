@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dsb85bjxex0dc" path="res://assets/music/03 - menu_game jam test 1.mp3" id="3_67hhc"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="7_giq17"]
 
-[node name="MainMenu" type="Control" groups=["MainMenu"]]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,7 @@ script = ExtResource("1_i3etc")
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_67hhc")
 autoplay = true
+bus = &"Music"
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -74,7 +75,6 @@ text = "High Scores"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 size_flags_horizontal = 4

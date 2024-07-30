@@ -20,21 +20,18 @@ func enter():
 	LevelManager.unload_level()
 	main_menu.activate()
 
-func exit():
-	main_menu.deactivate()
-
 func exit_game():
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
 
 func show_settings():
-	pass #todo
-	#Transitioned.emit(settings_screen)
+	Transitioned.emit(settings_screen)
 	
 func show_credits():
-	pass #todo
+	pass # todo
 	#Transitioned.emit(credits_screen)
 
 func start_game(level_id: int):
+	main_menu.deactivate()
 	LevelManager.load_level(level_id)
 	Transitioned.emit(level_active_screen)

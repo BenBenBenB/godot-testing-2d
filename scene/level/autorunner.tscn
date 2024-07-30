@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdrvtre8fd6eq" path="res://assets/tileset/pulkitverma/Snow_tileset.png" id="1_s6umb"]
 [ext_resource type="Texture2D" uid="uid://du21v34y0pk6h" path="res://assets/tileset/pulkitverma/Dark_Gloomy_Ground_tileset.png" id="2_aqxln"]
-[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/test_player.tscn" id="3_v8igq"]
+[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="3_v8igq"]
 [ext_resource type="PackedScene" uid="uid://btofm7mdpmx3r" path="res://scene/entity/generic_food.tscn" id="4_ywd7m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2gti"]

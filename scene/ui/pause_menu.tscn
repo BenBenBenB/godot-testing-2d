@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scene/ui/pause_menu.gd" id="2_6pl23"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_45hui"]
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("hover_particle") groups=["pause menu"]]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("hover_particle")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +17,7 @@ script = ExtResource("2_6pl23")
 hover_particle = NodePath("ColorRect/HBoxContainer/hover particle")
 
 [node name="PauseMuzak" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -25,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.194349, 0.194349, 0.194349, 0.313726)
+color = Color(0.196078, 0.196078, 0.196078, 0.490196)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
