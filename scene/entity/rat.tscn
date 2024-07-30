@@ -1,7 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2vvheufpag08"]
+[gd_scene load_steps=14 format=3 uid="uid://d2vvheufpag08"]
 
 [ext_resource type="Texture2D" uid="uid://bdqko7nk7cd3e" path="res://assets/sprite/rat.png" id="1_h24as"]
 [ext_resource type="Texture2D" uid="uid://b1bbx5kt7pg2p" path="res://assets/tileset/level_design.png" id="2_6kgky"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cwoo4"]
+radius = 7.34
+height = 28.3844
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3xux"]
+size = Vector2(8, 11)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlthp"]
+radius = 12.755
+height = 42.3
 
 [sub_resource type="Animation" id="Animation_osjiu"]
 length = 0.001
@@ -1325,6 +1336,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0, 0.482354]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/torso/head/jaw:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Skeleton2D/torso/head/jaw:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-2.84489, -2.9086]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iml8x"]
 _data = {
@@ -1337,7 +1372,7 @@ _data = {
 "throw": SubResource("Animation_j6xy6")
 }
 
-[node name="Node2D" type="Area2D"]
+[node name="Rat" type="Node2D"]
 
 [node name="polygons" type="Node2D" parent="."]
 
@@ -1409,7 +1444,6 @@ bones = ["torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "torso/head"
 
 [node name="torso" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(17.115, 59)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 19, 56)
 editor_settings/show_bone_gizmo = false
 
@@ -1424,15 +1458,26 @@ scale = Vector2(1, 1)
 rest = Transform2D(-0.956305, -0.292372, 0.292372, -0.956305, 0, 0)
 editor_settings/show_bone_gizmo = false
 
+[node name="Area2D" type="Area2D" parent="Skeleton2D/torso/head"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/torso/head/Area2D"]
+position = Vector2(-10.085, -4.36)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cwoo4")
+
 [node name="front_leg" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-1.96915, -0.349908)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -2, 5)
 editor_settings/show_bone_gizmo = false
 
+[node name="Area2D" type="Area2D" parent="Skeleton2D/torso/front_leg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/torso/front_leg/Area2D"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_c3xux")
+
 [node name="back_leg" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-0.0896862, -5.21106)
-scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -2, 1)
 editor_settings/show_bone_gizmo = false
 
@@ -1443,9 +1488,14 @@ editor_settings/show_bone_gizmo = false
 
 [node name="back_arm" type="Bone2D" parent="Skeleton2D/torso"]
 position = Vector2(-0.638748, -24.115)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -3, -18)
 editor_settings/show_bone_gizmo = false
+
+[node name="Area2D" type="Area2D" parent="Skeleton2D/torso"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/torso/Area2D"]
+position = Vector2(0.245001, -12.15)
+shape = SubResource("CapsuleShape2D_vlthp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
