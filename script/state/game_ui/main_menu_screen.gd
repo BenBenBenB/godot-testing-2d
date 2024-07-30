@@ -16,7 +16,7 @@ func _ready():
 	main_menu.Credits.connect(show_credits)
 	main_menu.Quit.connect(exit_game)
 
-func enter(prev_state = null):
+func enter():
 	LevelManager.unload_level()
 	main_menu.activate()
 

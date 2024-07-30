@@ -14,7 +14,6 @@ func _ready() -> void:
 func stop_scroll():
 	scroll_speed = 0
 
-
 func _on_end_trigger_box_body_entered(body):
 	if body.is_in_group("player"):
 		completed_level.emit(2)

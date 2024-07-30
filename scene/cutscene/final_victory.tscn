@@ -11,6 +11,7 @@ script = ExtResource("1_n6lg4")
 
 [node name="VictoryTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lveli")
+bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2

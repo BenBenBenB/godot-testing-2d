@@ -5,10 +5,10 @@ class_name VictoryScreen
 @onready var main_menu_screen = $"../MainMenuScreen"
 
 
-func enter(prev_state = null):
-	LevelManager.unload_level()
+func enter():
 	LevelManager.load_level(-1)
-	LevelManager.loaded_level.EndGame.connect(back_to_menu)
+	if not LevelManager.loaded_level.EndGame.is_co(back_to_menu):
+		LevelManager.loaded_level.EndGame.connect(back_to_menu)
 
 func update(_delta):
 	if Input.is_action_pressed("pause"):

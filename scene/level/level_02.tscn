@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c54m08gugew1i"]
 
-[ext_resource type="Script" path="res://script/classes/level.gd" id="1_t2a0g"]
+[ext_resource type="Script" path="res://scene/level/level_02.gd" id="1_4pp7r"]
 [ext_resource type="Texture2D" uid="uid://dvr17f3hjsdrt" path="res://assets/tileset/sewer_bg.png" id="3_7m8lo"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="3_awf55"]
 [ext_resource type="Texture2D" uid="uid://d1jmtjxxkrq7j" path="res://assets/tileset/sewer_assets.png" id="3_io4od"]
@@ -57,11 +57,11 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1eiqf")
 
 [node name="Level2" type="Node"]
-script = ExtResource("1_t2a0g")
-level_id = 2
+script = ExtResource("1_4pp7r")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_iqnhy")
+bus = &"Music"
 
 [node name="bg" type="Sprite2D" parent="."]
 show_behind_parent = true

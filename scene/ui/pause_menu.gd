@@ -9,7 +9,7 @@ signal Settings()
 #@export var hover_particle: AnimatedSprite2D
 @onready var pause_muzak = $PauseMuzak
 
-var _resume_music_at: float = 0.0
+var _resume_music_at: float
 
 func deactivate() -> void:
 	hide()
@@ -33,20 +33,16 @@ func activate() -> void:
 		pause_muzak.play(_resume_music_at);
 
 func _on_continue_button_pressed():
-	deactivate()
 	Continue.emit()
 
 func _on_menu_button_pressed():
-	deactivate()
 	LevelExit.emit()
 
 func _on_retry_button_pressed():
-	deactivate()
 	LevelRestart.emit()
 
 func _on_pause_muzak_finished():
 	pause_muzak.play()
 
 func _on_settings_button_pressed():
-	deactivate()
 	Settings.emit()

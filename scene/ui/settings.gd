@@ -6,9 +6,12 @@ signal close_settings()
 var music_bus = AudioServer.get_bus_index("Music")
 var sfx_bus = AudioServer.get_bus_index("SFX")
 
-# Called when the node enters the scene tree for the first time.
+@onready var music_slider = $NinePatchRect/VBoxContainer/GridContainer/MusicSlider
+@onready var sfx_slider = $NinePatchRect/VBoxContainer/GridContainer/SfxSlider
+
 func _ready():
-	pass # Replace with function body.
+	AudioServer.set_bus_volume_db(music_bus, linear_to_db(music_slider.value))
+	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(sfx_slider.value))
 
 func activate() -> void:
 	show()

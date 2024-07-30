@@ -16,14 +16,13 @@ func _ready():
 	pause_menu.LevelRestart.connect(restart_level)
 	pause_menu.Settings.connect(show_settings)
 
-func enter(prev_state = null):
-	get_tree().paused = true
-	pause_menu.activate()
+func enter():
+	if not get_tree().paused:
+		pause_menu.activate()
 
 func exit():
-	pause_menu.deactivate()
-	get_tree().paused = false
-
+	pass
+	
 func update(_delta):
 	if Input.is_action_just_pressed("pause"):
 		Transitioned.emit(level_active_screen)
@@ -32,20 +31,22 @@ func update(_delta):
 		player_died()
 
 func player_died():
+	pause_menu.deactivate()
 	Transitioned.emit(death_screen)
 
 func continue_level():
 	pause_timer.start()
+	pause_menu.deactivate()
 	Transitioned.emit(level_active_screen)
 
 func restart_level():
 	LevelManager.restart_level()
+	pause_menu.deactivate()
 	Transitioned.emit(level_active_screen)
 
 func go_to_main_menu():
-	Transitioned.emit(main_menu_screen)
 	pause_menu.deactivate()
+	Transitioned.emit(main_menu_screen)
 
 func show_settings():
 	Transitioned.emit(settings_screen)
-	pause_menu.deactivate()
