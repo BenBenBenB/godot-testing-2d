@@ -1,7 +1,7 @@
 extends Area2D
-@export var camera : Camera2D
-@export var marker : Node2D
-@onready var triggered : bool = false
+@export var camera: Camera2D
+@export var marker: Node2D
+@onready var triggered: bool = false
 
 
 func _on_body_entered(body):

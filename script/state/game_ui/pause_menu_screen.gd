@@ -36,4 +36,3 @@ func restart_level():
 func go_to_main_menu():
 	Transitioned.emit(main_menu_screen)
 	pause_menu.deactivate()
-	
