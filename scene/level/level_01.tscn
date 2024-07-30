@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=20 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="9_av47y"]
 [ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
 [ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="12_h4vcx"]
+[ext_resource type="PackedScene" uid="uid://dm72p31hntb2a" path="res://scene/ui/settings.tscn" id="14_8lb5f"]
 [ext_resource type="PackedScene" uid="uid://kxhrm3jtu4th" path="res://scene/entity/generic_bad_eat.tscn" id="14_y86k8"]
 [ext_resource type="PackedScene" uid="uid://38vv3dma8qfv" path="res://scene/entity/generic_mushroom.tscn" id="15_y3a7g"]
 
@@ -229,6 +230,9 @@ visible = false
 
 [node name="death_menu" parent="CanvasLayer" instance=ExtResource("9_av47y")]
 unique_name_in_owner = true
+visible = false
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("14_8lb5f")]
 visible = false
 
 [node name="Generic bad eat" parent="." instance=ExtResource("14_y86k8")]

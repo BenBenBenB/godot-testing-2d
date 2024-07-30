@@ -21,3 +21,6 @@ func update(_delta):
 
 func close_screen():
 	Transitioned.emit(main_menu_screen)
+	#either read if game is paused to determine which screen to go back to
+	#or have another method for connecting to pause screen only
+	#can I read prev scene? or state?

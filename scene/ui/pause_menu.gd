@@ -4,6 +4,7 @@ class_name PauseMenu
 signal Continue()
 signal LevelExit()
 signal LevelRestart()
+signal Settings()
 
 #@export var hover_particle: AnimatedSprite2D
 @onready var pause_muzak = $PauseMuzak
@@ -54,3 +55,8 @@ func _on_menu_button_pressed():
 func _on_retry_button_pressed():
 	deactivate()
 	LevelRestart.emit()
+
+func _on_settings_button_pressed():
+	#hide pause screen but don't unpause game
+	hide()
+	Settings.emit()
