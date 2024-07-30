@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cacts1q0ijm6v"]
+[gd_scene load_steps=18 format=3 uid="uid://cacts1q0ijm6v"]
 
 [ext_resource type="Script" path="res://scene/level/level_01.gd" id="1_mwkm8"]
 [ext_resource type="AudioStream" uid="uid://bdnu83v2gnsgq" path="res://assets/music/02 - level_blob music.mp3" id="2_e4ubd"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b03hqib6trlwm" path="res://assets/tileset/shroom_background.png" id="3_4403k"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="5_arufi"]
 [ext_resource type="PackedScene" uid="uid://dqnurckrapc3f" path="res://scene/entity/trigger_box.tscn" id="6_ietob"]
-[ext_resource type="Script" path="res://script/entities/end_trigger.gd" id="7_fcsdi"]
 [ext_resource type="Script" path="res://script/entities/mushroom_trigger.gd" id="8_ctgmh"]
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="9_av47y"]
 [ext_resource type="PackedScene" uid="uid://wpfgcm4ujef5" path="res://scene/entity/enemy/turret_straight_line.tscn" id="10_iqs3h"]
@@ -176,7 +175,7 @@ current_level = NodePath("..")
 tilemap = NodePath("../SmallMainTileMap")
 
 [node name="PlayerBlackhole" parent="." node_paths=PackedStringArray("current_level") instance=ExtResource("5_arufi")]
-position = Vector2(2818, 110)
+position = Vector2(3681, 452)
 current_level = NodePath("..")
 
 [node name="testingCamera2D" type="Camera2D" parent="PlayerBlackhole"]
@@ -186,7 +185,6 @@ zoom = Vector2(1.4, 1.4)
 [node name="end trigger box" parent="." instance=ExtResource("6_ietob")]
 position = Vector2(3888, 271)
 scale = Vector2(8, 40)
-script = ExtResource("7_fcsdi")
 
 [node name="mushroom trigger box" parent="." node_paths=PackedStringArray("camera", "marker") instance=ExtResource("6_ietob")]
 position = Vector2(2768, 269)
@@ -266,3 +264,5 @@ position = Vector2(2948, 494)
 
 [node name="Generic mushroom7" parent="." instance=ExtResource("15_y3a7g")]
 position = Vector2(3008, 426)
+
+[connection signal="body_entered" from="end trigger box" to="." method="_on_end_trigger_box_body_entered"]

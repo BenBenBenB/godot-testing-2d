@@ -1,6 +1,7 @@
 class_name Level
 extends Node
 
+signal completed_level(next_level_id: int)
 signal won_entire_game()
 
 @export var level_id: int

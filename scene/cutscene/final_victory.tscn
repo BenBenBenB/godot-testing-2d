@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://hpi8mfv4wygs" path="res://assets/music/05 - victory and credits.mp3" id="2_lveli"]
 [ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="2_vh8ti"]
 [ext_resource type="Texture2D" uid="uid://b1fjqp2ah0ych" path="res://assets/backgrounds/earf.png" id="3_vgv55"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/moon.png" id="4_idmrm"]
+[ext_resource type="Texture2D" uid="uid://b6wdoundf0ys4" path="res://assets/backgrounds/moon.png" id="4_idmrm"]
 
 [node name="FinalVictory" type="Node"]
 script = ExtResource("1_n6lg4")

@@ -18,9 +18,11 @@ func _can_pause():
 
 func enter():
 	var level = get_tree().get_first_node_in_group("level")
-	if level and level.won_entire_game \
-		and not level.won_entire_game.is_connected(player_won_game):
-		level.won_entire_game.connect(player_won_game)
+	if is_instance_of(level, Level):
+		if not level.won_entire_game.is_connected(player_won_game):
+			level.won_entire_game.connect(player_won_game)
+		if not level.completed_level.is_connected(player_beat_level):
+			level.completed_level.connect(player_beat_level)
 
 func exit():
 	pass
@@ -39,10 +41,9 @@ func update(_delta):
 func player_died():
 	Transitioned.emit(death_screen)
 	
-func player_beat_level():
-	pass # idk yet
-	#LevelManager.load_next_level()
-	#Transitioned.emit(...)
+func player_beat_level(level_id: int):
+	LevelManager.unload_level()
+	LevelManager.load_level(level_id)
 	
 func player_won_game():
 	Transitioned.emit(victory_screen)
