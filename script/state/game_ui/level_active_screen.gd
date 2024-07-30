@@ -15,6 +15,12 @@ func _ready():
 func _can_pause():
 	return pause_timer.is_stopped()
 
+
+func enter():
+	var level = get_tree().get_first_node_in_group("level")
+	if level and level.won_entire_game:
+		level.won_entire_game.connect(player_won_game)
+
 func exit():
 	pass
 

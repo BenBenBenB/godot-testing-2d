@@ -1,33 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwmo54qwuir1l"]
+[gd_scene load_steps=6 format=3 uid="uid://dpxbt136fataa"]
 
-[ext_resource type="Script" path="res://scene/cutscene/final_victory.gd" id="1_e2fru"]
-[ext_resource type="PackedScene" path="res://scene/entity/player_top_down.tscn" id="2_7jkbm"]
+[ext_resource type="Script" path="res://scene/cutscene/final_victory.gd" id="1_n6lg4"]
+[ext_resource type="AudioStream" uid="uid://dsb85bjxex0dc" path="res://assets/music/03 - menu_game jam test 1.mp3" id="2_uhr00"]
+[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="2_vh8ti"]
 [ext_resource type="Texture2D" uid="uid://b1fjqp2ah0ych" path="res://assets/backgrounds/earf.png" id="3_vgv55"]
-[ext_resource type="AudioStream" uid="uid://fcl5ccg4jrl6" path="res://assets/music/01 - rat-boss_mad scientist music.mp3" id="4_56gri"]
+[ext_resource type="Texture2D" uid="uid://b6wdoundf0ys4" path="res://assets/backgrounds/moon.png" id="4_idmrm"]
 
-[node name="FinalVictory" type="Node2D"]
-script = ExtResource("1_e2fru")
+[node name="FinalVictory" type="Node"]
+script = ExtResource("1_n6lg4")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 49)
-scale = Vector2(1.18008, 1.27046)
-zoom = Vector2(0.8, 0.8)
+[node name="VictoryTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uhr00")
 
-[node name="PlayerTopDown" parent="." instance=ExtResource("2_7jkbm")]
-position = Vector2(59, -52)
-mass = 10.0
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 31.0
+offset_bottom = 32.0
+scale = Vector2(16.4665, 9.42251)
+color = Color(0.0745098, 0.054902, 0.0823529, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Earf" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-1, -25)
+position = Vector2(481.998, 117.14)
+scale = Vector2(0.797071, 0.797071)
 texture = ExtResource("3_vgv55")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -228.0
-offset_top = -106.0
-offset_right = -154.0
-offset_bottom = -83.0
-text = "Good job!"
+[node name="PlayerBlackhole" parent="." instance=ExtResource("2_vh8ti")]
+position = Vector2(482.998, 131.14)
+scale = Vector2(2.5, 2.5)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_56gri")
+[node name="Moon" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(324, 299)
+scale = Vector2(0.802513, 0.802513)
+texture = ExtResource("4_idmrm")
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_left = 81.0
+offset_top = 111.497
+offset_right = 147.0
+offset_bottom = 134.497
+rotation = -0.332238
+scale = Vector2(3.13552, 3.13552)
+text = "You win!"
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="EndGameButton" type="Button" parent="."]
+z_index = 5
+offset_left = 235.0
+offset_top = 318.0
+offset_right = 349.0
+offset_bottom = 349.0
+text = "Back to Menu"
+
+[connection signal="button_up" from="EndGameButton" to="." method="_on_end_game_button_button_up"]

@@ -21,13 +21,13 @@ var dead: bool = false
 
 func _ready():
 	#get info from level and update the UI
-	scroll_speed = current_level.scroll_speed
+	if current_level:
+		scroll_speed = current_level.scroll_speed
 	auto_forward = true
 	#initialise player scale
 	var ratio: float = (size / max_size) * (max_scale - min_scale) + min_scale
 	scale = Vector2(ratio, ratio)
 	#set start position
-	position = Vector2(32, 128)
 
 func is_dead():
 	return dead
