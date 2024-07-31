@@ -16,7 +16,7 @@ on:
          type: environment
          description: Select the environment
 env:
-  EXPORT_NAME: TestProject2dGodot
+  EXPORT_NAME: GravyGame
   GODOT_VERSION: 4.2.2
 jobs:
   export-web:
@@ -52,6 +52,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
-          ITCH_GAME: ${{ vars.ITCH_GAME }}
-          ITCH_USER: ${{ vars.ITCH_USER }}
+          ITCH_GAME: ${{ env.ITCH_GAME }}
+          ITCH_USER: ${{ env.ITCH_USER }}
           PACKAGE: build/web
