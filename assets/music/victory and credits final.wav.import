@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://be21tha6uhcbt"
+path="res://.godot/imported/victory and credits final.wav-b654dca65232d1571038b7d460840cc8.sample"
+
+[deps]
+
+source_file="res://assets/music/victory and credits final.wav"
+dest_files=["res://.godot/imported/victory and credits final.wav-b654dca65232d1571038b7d460840cc8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

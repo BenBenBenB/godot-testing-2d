@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2it646hjtk0u"
+path="res://.godot/imported/rat fight music final.wav-ca059058e1a1e6bb1aa1c1619c9a85af.sample"
+
+[deps]
+
+source_file="res://assets/music/rat fight music final.wav"
+dest_files=["res://.godot/imported/rat fight music final.wav-ca059058e1a1e6bb1aa1c1619c9a85af.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
