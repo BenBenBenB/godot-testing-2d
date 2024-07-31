@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://buon2mtc7x5m4"]
+[gd_scene load_steps=10 format=3 uid="uid://buon2mtc7x5m4"]
 
 [ext_resource type="Script" path="res://scene/ui/main_menu.gd" id="1_i3etc"]
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_yi4ks"]
 [ext_resource type="AudioStream" uid="uid://dcdhb2nqelsv3" path="res://assets/music/title music final.wav" id="3_1h3pg"]
 [ext_resource type="Script" path="res://scene/ui/ui_sfx.gd" id="4_c0lnw"]
 [ext_resource type="Texture2D" uid="uid://vgam182o5ysb" path="res://assets/tileset/menu_bg.png" id="4_ybdeq"]
+[ext_resource type="AudioStream" uid="uid://2shwrxmqal22" path="res://assets/music/UI bleep 1.wav" id="5_bsv0f"]
+[ext_resource type="AudioStream" uid="uid://ckefecw1s2wsb" path="res://assets/music/UI bleep 2.wav" id="6_mccmo"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="7_giq17"]
+[ext_resource type="AudioStream" uid="uid://deyl88slrd3ge" path="res://assets/music/eating sfx.wav" id="7_kihbl"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +28,8 @@ bus = &"Music"
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 script = ExtResource("4_c0lnw")
+hover_sfx = Array[AudioStream]([ExtResource("5_bsv0f"), ExtResource("6_mccmo")])
+press_sfx = Array[AudioStream]([ExtResource("7_kihbl")])
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1

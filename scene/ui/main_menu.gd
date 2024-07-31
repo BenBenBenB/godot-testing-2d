@@ -7,17 +7,22 @@ signal Credits()
 signal Quit()
 
 @onready var title_music = $TitleMusic
+@onready var sfx_player = $sfx
 
 func _on_play_button_pressed():
+	sfx_player.play_press_sfx()
 	StartLevel.emit(1)
 
 func _on_settings_button_pressed():
+	sfx_player.play_press_sfx()
 	Settings.emit()
 
 func _on_quit_button_pressed():
+	sfx_player.play_press_sfx()
 	Quit.emit()
 
 func _on_credits_button_pressed():
+	sfx_player.play_press_sfx()
 	Credits.emit()
 
 func deactivate() -> void:

@@ -2,16 +2,19 @@ extends Control
 class_name DeathMenu
 
 @onready var title_music = $backgroundMusic
+@onready var sfx_player = $sfx
 
 signal RestartLevel()
 signal ExitLevel()
 
 
 func _on_menu_button_pressed():
+	sfx_player.play_press_sfx()
 	deactivate()
 	ExitLevel.emit()
 
 func _on_retry_button_pressed():
+	sfx_player.play_press_sfx()
 	deactivate()
 	RestartLevel.emit()
 
