@@ -52,6 +52,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
-          ITCH_GAME: ${{env.ITCH_GAME}}
-          ITCH_USER: ${{env.ITCH_USER}}
+          ITCH_GAME: ${{ vars.ITCH_GAME }}
+          ITCH_USER: ${{ vars.ITCH_USER }}
           PACKAGE: build/web
