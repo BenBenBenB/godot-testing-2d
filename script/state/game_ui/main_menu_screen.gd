@@ -21,6 +21,7 @@ func enter():
 	main_menu.activate()
 
 func exit_game():
+	main_menu.deactivate()
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
 

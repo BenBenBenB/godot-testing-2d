@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://djdlc0w6jhve8"]
+[gd_scene load_steps=30 format=3 uid="uid://djdlc0w6jhve8"]
 
 [ext_resource type="Script" path="res://scene/level/credits.gd" id="1_5nt7w"]
 [ext_resource type="AudioStream" uid="uid://hpi8mfv4wygs" path="res://assets/music/05 - victory and credits.mp3" id="2_dlxg2"]
@@ -132,6 +132,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usopl"]
 size = Vector2(113, 29.5)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6t8g0"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Credits" type="Node"]
 script = ExtResource("1_5nt7w")
 level_id = -2
@@ -205,5 +209,13 @@ position = Vector2(304, 294)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MenuHitBoxStaticBody2D"]
 shape = SubResource("RectangleShape2D_usopl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 261.0
+offset_top = 230.0
+offset_right = 374.0
+offset_bottom = 253.0
+text = "WASD to Move"
+label_settings = SubResource("LabelSettings_6t8g0")
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
