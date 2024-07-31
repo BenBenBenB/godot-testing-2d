@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://71oepqubn8y0"]
+
+[ext_resource type="Script" path="res://scene/entity/edible_developer.gd" id="1_vioye"]
+[ext_resource type="Texture2D" uid="uid://boiaxfps3e5mn" path="res://assets/temp/player_idle_1.png" id="2_qqlk3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_46y36"]
+radius = 23.0
+height = 98.0
+
+[node name="EdibleDeveloper" type="Area2D"]
+script = ExtResource("1_vioye")
+
+[node name="DeveloperSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qqlk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_46y36")
+
+[node name="DevNameLabel" type="Label" parent="."]
+offset_left = -37.0
+offset_top = -70.0
+offset_right = 44.0
+offset_bottom = -47.0
+text = "Dev Name"
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = -32.0
+offset_top = 47.0
+offset_right = 36.0
+offset_bottom = 70.0
+text = "Dev Title"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

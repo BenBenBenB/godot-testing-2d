@@ -1,18 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc62577318f2y"]
+[gd_scene load_steps=19 format=3 uid="uid://cc62577318f2y"]
 
 [ext_resource type="Script" path="res://scene/main.gd" id="1_l7ohu"]
 [ext_resource type="Script" path="res://script/classes/level_data.gd" id="2_3thhf"]
 [ext_resource type="PackedScene" uid="uid://buon2mtc7x5m4" path="res://scene/ui/main_menu.tscn" id="2_acwq4"]
 [ext_resource type="PackedScene" uid="uid://bddy0xye4soiv" path="res://scene/ui/pause_menu.tscn" id="4_r2tqv"]
-[ext_resource type="Script" path="res://script/classes/state_machine.gd" id="5_7ngvv"]
 [ext_resource type="PackedScene" uid="uid://ht5y7fx1fdck" path="res://scene/ui/death_menu.tscn" id="5_aw3yp"]
 [ext_resource type="Script" path="res://script/state/game_ui/death_screen.gd" id="5_dvhj4"]
 [ext_resource type="Script" path="res://script/state/game_ui/main_menu_screen.gd" id="6_oc72y"]
 [ext_resource type="PackedScene" uid="uid://dm72p31hntb2a" path="res://scene/ui/settings.tscn" id="6_pipb7"]
+[ext_resource type="Script" path="res://scene/state_machine_ui.gd" id="7_txtfc"]
 [ext_resource type="Script" path="res://script/state/game_ui/level_active_screen.gd" id="7_xid75"]
 [ext_resource type="Script" path="res://script/state/game_ui/pause_menu_screen.gd" id="9_t7can"]
+[ext_resource type="Script" path="res://script/state/game_ui/level_loading_screen.gd" id="9_tyg20"]
 [ext_resource type="Script" path="res://script/state/game_ui/victory_screen.gd" id="10_lkmeh"]
-[ext_resource type="Script" path="res://script/state/game_ui/credits_screen.gd" id="12_06y45"]
 [ext_resource type="Script" path="res://script/state/game_ui/settings_screen.gd" id="13_u3mjv"]
 
 [sub_resource type="Resource" id="Resource_vqbcs"]
@@ -39,9 +39,17 @@ level_completed = false
 level_unlocked = false
 level_path = "cutscene/final_victory"
 
+[sub_resource type="Resource" id="Resource_0i2j2"]
+script = ExtResource("2_3thhf")
+level_id = -2
+level_name = "Credits"
+level_completed = false
+level_unlocked = false
+level_path = "level/credits"
+
 [node name="Main" type="Node"]
 script = ExtResource("1_l7ohu")
-available_levels = Array[ExtResource("2_3thhf")]([SubResource("Resource_vqbcs"), SubResource("Resource_nwigl"), SubResource("Resource_hi0wg")])
+available_levels = Array[ExtResource("2_3thhf")]([SubResource("Resource_vqbcs"), SubResource("Resource_nwigl"), SubResource("Resource_hi0wg"), SubResource("Resource_0i2j2")])
 
 [node name="PauseTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -67,11 +75,14 @@ visible = false
 
 [node name="StateMachineUI" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 process_mode = 3
-script = ExtResource("5_7ngvv")
+script = ExtResource("7_txtfc")
 current_state = NodePath("MainMenuScreen")
 
 [node name="MainMenuScreen" type="Node" parent="StateMachineUI"]
 script = ExtResource("6_oc72y")
+
+[node name="LevelLoadingScreen" type="Node" parent="StateMachineUI"]
+script = ExtResource("9_tyg20")
 
 [node name="LevelActiveScreen" type="Node" parent="StateMachineUI"]
 script = ExtResource("7_xid75")
@@ -84,9 +95,6 @@ script = ExtResource("9_t7can")
 
 [node name="VictoryScreen" type="Node" parent="StateMachineUI"]
 script = ExtResource("10_lkmeh")
-
-[node name="CreditsScreen" type="Node" parent="StateMachineUI"]
-script = ExtResource("12_06y45")
 
 [node name="SettingsScreen" type="Node" parent="StateMachineUI"]
 script = ExtResource("13_u3mjv")

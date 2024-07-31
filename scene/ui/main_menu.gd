@@ -3,8 +3,8 @@ class_name MainMenu
 
 signal StartLevel(level_id: int)
 signal Settings()
-signal Quit()
 signal Credits()
+signal Quit()
 
 @onready var title_music = $TitleMusic
 
@@ -16,6 +16,9 @@ func _on_settings_button_pressed():
 
 func _on_quit_button_pressed():
 	Quit.emit()
+
+func _on_credits_button_pressed():
+	Credits.emit()
 
 func deactivate() -> void:
 	hide()

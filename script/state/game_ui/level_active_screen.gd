@@ -2,6 +2,8 @@ extends State
 class_name LevelActiveScreen
 # can pause, die, or finish the level
 
+@onready var state_machine_ui = $".."
+
 # states
 @onready var death_screen = $"../DeathScreen"
 @onready var pause_menu_screen = $"../PauseMenuScreen"
@@ -15,14 +17,12 @@ func _ready():
 func _can_pause():
 	return pause_timer.is_stopped()
 
-
 func enter():
-	var level = get_tree().get_first_node_in_group("level")
-	if is_instance_of(level, Level):
-		if not level.won_entire_game.is_connected(player_won_game):
-			level.won_entire_game.connect(player_won_game)
-		if not level.completed_level.is_connected(player_beat_level):
-			level.completed_level.connect(player_beat_level)
+	var level = LevelManager.loaded_level
+	if level:
+		if level.level_ended.is_connected(load_level):
+			level.level_ended.disconnect(load_level)
+		level.level_ended.connect(load_level)
 
 func exit():
 	pass
@@ -41,9 +41,8 @@ func update(_delta):
 func player_died():
 	Transitioned.emit(death_screen)
 	
-func player_beat_level(level_id: int):
-	LevelManager.unload_level()
-	LevelManager.load_level(level_id)
+func load_level(level_id: int):
+	state_machine_ui.load_level(level_id)
 	
 func player_won_game():
 	Transitioned.emit(victory_screen)

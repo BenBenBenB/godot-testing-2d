@@ -16,4 +16,4 @@ func stop_scroll():
 
 func _on_end_trigger_box_body_entered(body):
 	if body.is_in_group("player"):
-		completed_level.emit(2)
+		level_ended.emit(2)
