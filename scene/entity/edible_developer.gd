@@ -6,8 +6,8 @@ signal dev_eaten()
 @export var title: String
 @export var mass: float = 100
 
-@onready var dev_name_label = $DevNameLabel
-@onready var title_label = $TitleLabel
+@onready var dev_name_label = $Splitter/DevNameLabel
+@onready var title_label = $Splitter/TitleLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

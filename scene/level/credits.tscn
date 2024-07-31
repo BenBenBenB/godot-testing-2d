@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djdlc0w6jhve8"]
+[gd_scene load_steps=29 format=3 uid="uid://djdlc0w6jhve8"]
 
 [ext_resource type="Script" path="res://scene/level/credits.gd" id="1_5nt7w"]
 [ext_resource type="AudioStream" uid="uid://hpi8mfv4wygs" path="res://assets/music/05 - victory and credits.mp3" id="2_dlxg2"]
@@ -7,14 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://vgam182o5ysb" path="res://assets/tileset/menu_bg.png" id="3_lgj0g"]
 [ext_resource type="Texture2D" uid="uid://boiaxfps3e5mn" path="res://assets/temp/ben_b_1.png" id="6_1bxx0"]
 [ext_resource type="Texture2D" uid="uid://cuv0jer6gggjs" path="res://assets/temp/ben_b_2.png" id="7_ie7me"]
-[ext_resource type="Texture2D" uid="uid://6kwr21p2gagc" path="res://assets/temp/sherione_1.png" id="8_b6enh"]
 [ext_resource type="Texture2D" uid="uid://cggbh0qojkxpb" path="res://assets/temp/tortex_1.png" id="8_o0xgq"]
 [ext_resource type="Texture2D" uid="uid://bxylosxc2b4xd" path="res://assets/temp/uncle_wizard_1.png" id="8_u68dm"]
 [ext_resource type="Texture2D" uid="uid://d1vlwbljpa22b" path="res://assets/temp/tortex_2.png" id="9_27gso"]
 [ext_resource type="Texture2D" uid="uid://lgksku40n5y0" path="res://assets/temp/uncle_wizard_2.png" id="9_37edi"]
-[ext_resource type="Texture2D" uid="uid://im5g55mfce5o" path="res://assets/temp/sherione_2.png" id="9_whq5q"]
 [ext_resource type="Texture2D" uid="uid://y4myk5qmqpnq" path="res://assets/temp/jake_1.png" id="10_h2i5w"]
+[ext_resource type="Texture2D" uid="uid://c44dljoyfawul" path="res://assets/temp/irl_lootbug_spritesheet.png" id="10_o7orp"]
 [ext_resource type="Texture2D" uid="uid://p1joqc42wk6" path="res://assets/temp/jake_2.png" id="11_70lt5"]
+[ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="15_yiewt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ydij4"]
 animations = [{
@@ -44,14 +44,57 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq2lx"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(1, 0, 62, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq5qd"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(65, 0, 62, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55n4r"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(129, 0, 62, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xgmb"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(193, 0, 62, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqdff"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(257, 0, 62, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqpp3"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(321, 0, 62, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx6oy"]
+atlas = ExtResource("10_o7orp")
+region = Rect2(385, 0, 62, 43)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ts8c6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_b6enh")
+"texture": SubResource("AtlasTexture_mq2lx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_whq5q")
+"texture": SubResource("AtlasTexture_yq5qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55n4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xgmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqdff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqpp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx6oy")
 }],
 "loop": true,
 "name": &"default",
@@ -98,14 +141,15 @@ stream = ExtResource("2_dlxg2")
 bus = &"Music"
 
 [node name="BackgroundImage" type="Sprite2D" parent="."]
-position = Vector2(333, 235)
+position = Vector2(324, 216)
+scale = Vector2(0.89964, 0.89964)
 texture = ExtResource("3_lgj0g")
 
 [node name="PlayerBlackhole" parent="." instance=ExtResource("2_nhaa8")]
-position = Vector2(262, 229)
+position = Vector2(310, 204)
 
 [node name="BenB" parent="." instance=ExtResource("3_amus5")]
-position = Vector2(500, 248)
+position = Vector2(195, 287)
 dev_name = "BenBenB"
 title = "Developer"
 
@@ -114,23 +158,26 @@ sprite_frames = SubResource("SpriteFrames_ydij4")
 frame_progress = 0.616643
 
 [node name="Cratylus" parent="." instance=ExtResource("3_amus5")]
-position = Vector2(415, 103)
+position = Vector2(455, 113)
 dev_name = "Uncle Wizard"
 title = "Sound Design"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cratylus"]
+scale = Vector2(0.218573, 0.218573)
 sprite_frames = SubResource("SpriteFrames_7pksn")
 
 [node name="Sheroine" parent="." instance=ExtResource("3_amus5")]
-position = Vector2(264, 73)
+position = Vector2(157, 135)
 dev_name = "Sheroine"
 title = "Developer/Art"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sheroine"]
+scale = Vector2(1.49419, 1.49419)
 sprite_frames = SubResource("SpriteFrames_ts8c6")
+frame_progress = 0.957236
 
 [node name="Tortex" parent="." instance=ExtResource("3_amus5")]
-position = Vector2(146, 118)
+position = Vector2(461, 290)
 dev_name = "Tortex"
 title = "Writer"
 
@@ -138,7 +185,7 @@ title = "Writer"
 sprite_frames = SubResource("SpriteFrames_f33jp")
 
 [node name="Magicsmoke" parent="." instance=ExtResource("3_amus5")]
-position = Vector2(106, 267)
+position = Vector2(576, 108)
 dev_name = "MagicSmoke"
 title = "Art"
 
@@ -150,6 +197,7 @@ offset_left = 247.0
 offset_top = 279.0
 offset_right = 361.0
 offset_bottom = 310.0
+theme = ExtResource("15_yiewt")
 text = "Back to Menu"
 
 [node name="MenuHitBoxStaticBody2D" type="StaticBody2D" parent="."]
