@@ -7,6 +7,7 @@ signal stop_scroll()
 #level
 @export var current_level: Level
 var scroll_speed: int
+@onready var sfx_player = $sfx
 
 #self
 var speed: int = 125
@@ -39,6 +40,7 @@ func get_input():
 		auto_forward = true
 
 func consume_mass(food_value: float):
+	sfx_player.play_eat_sfx()
 	size += food_value
 	if size < max_size:
 		var ratio: float = (size / max_size) * (max_scale - min_scale) + min_scale
@@ -81,9 +83,7 @@ func _physics_process(_delta):
 		move_and_slide()
 
 func player_hurt():
-	#Need to show player that it hurted
-	#Mainly just play visual and audio effects
-	pass
+	sfx_player.play_hurt_sfx()
 
 func player_die():
 	#make player explode (play particle effect)

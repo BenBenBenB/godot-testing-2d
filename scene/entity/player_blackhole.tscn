@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dev35xoudhei"]
+[gd_scene load_steps=12 format=3 uid="uid://dev35xoudhei"]
 
 [ext_resource type="Script" path="res://script/entities/player_blackhole.gd" id="1_n271h"]
 [ext_resource type="Texture2D" uid="uid://dueoobtmouswf" path="res://assets/sprite/antimatter_particles.png" id="1_o4mia"]
 [ext_resource type="Texture2D" uid="uid://bplrx2vbffof0" path="res://assets/sprite/eyes.png" id="2_bdure"]
+[ext_resource type="Script" path="res://scene/entity/player_sfx.gd" id="2_snnth"]
+[ext_resource type="AudioStream" uid="uid://deyl88slrd3ge" path="res://assets/music/eating sfx.wav" id="3_ifqpm"]
+[ext_resource type="AudioStream" uid="uid://cxli5sxb3ckna" path="res://assets/music/goopy oof (no delay).wav" id="4_21ha5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1pb8"]
 radius = 1.0
@@ -54,6 +57,12 @@ anim_speed_max = 1.0
 texture_filter = 1
 collision_layer = 7
 script = ExtResource("1_n271h")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("2_snnth")
+eat_sfx = ExtResource("3_ifqpm")
+hurt_sfx = ExtResource("4_21ha5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)

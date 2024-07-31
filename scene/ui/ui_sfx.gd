@@ -1,16 +1,7 @@
 extends AudioStreamPlayer
-#const ui_beep1 = preload("res://assets/music/UI bleep 1.wav")
-#const ui_beep2 = preload("res://assets/music/UI bleep 2.wav")
 @export var hover_sfx : Array[AudioStream]
 @export var press_sfx : Array[AudioStream]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func play_hover_sfx():
