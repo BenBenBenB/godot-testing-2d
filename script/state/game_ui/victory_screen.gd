@@ -3,16 +3,15 @@ class_name VictoryScreen
 # can go back to main menu
 
 @onready var state_machine_ui = $".."
-@onready var main_menu_screen = $"../MainMenuScreen"
 
 
 func enter():
-	if not LevelManager.loaded_level.EndGame.is_connected(back_to_menu):
-		LevelManager.loaded_level.EndGame.connect(back_to_menu)
+	if not LevelManager.loaded_level.EndGame.is_connected(roll_credits):
+		LevelManager.loaded_level.EndGame.connect(roll_credits)
 
 func update(_delta):
 	if Input.is_action_pressed("pause"):
-		back_to_menu()
+		roll_credits()
 
-func back_to_menu():
-	Transitioned.emit(main_menu_screen)
+func roll_credits():
+	state_machine_ui.load_level(-2)
