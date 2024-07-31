@@ -1,6 +1,8 @@
 extends Control
 class_name DeathMenu
 
+@onready var title_music = $backgroundMusic
+
 signal RestartLevel()
 signal ExitLevel()
 
@@ -18,9 +20,12 @@ func deactivate() -> void:
 	set_process(false)
 	set_process_input(false)
 	set_process_unhandled_input(false)
+	title_music.stop()
 
 func activate() -> void:
 	show()
 	set_process(true)
 	set_process_input(true)
 	set_process_unhandled_input(true)
+	if not title_music.playing:
+		title_music.play();

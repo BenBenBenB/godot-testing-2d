@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ht5y7fx1fdck"]
+[gd_scene load_steps=6 format=3 uid="uid://ht5y7fx1fdck"]
 
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_hfdxg"]
 [ext_resource type="Script" path="res://scene/ui/death_menu.gd" id="2_lxl4x"]
+[ext_resource type="AudioStream" uid="uid://b2yhtxeygahky" path="res://assets/music/death screen final.wav" id="3_bek8p"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_bi2ty"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_207a1"]
@@ -22,6 +23,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hfdxg")
 script = ExtResource("2_lxl4x")
+
+[node name="backgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bek8p")
+bus = &"Music"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
