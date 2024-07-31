@@ -31,5 +31,3 @@ func spawn_food():
 func stop():
 	stop_spawning()
 	scroll_speed = 0
-	print("I have ceased")
-
