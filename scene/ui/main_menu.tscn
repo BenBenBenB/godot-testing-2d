@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://buon2mtc7x5m4"]
 
-[ext_resource type="Texture2D" uid="uid://c6krlrd2cb8sl" path="res://assets/sprite/tilemap-backgrounds_packed.png" id="1_gpdyg"]
 [ext_resource type="Script" path="res://scene/ui/main_menu.gd" id="1_i3etc"]
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_yi4ks"]
 [ext_resource type="AudioStream" uid="uid://dsb85bjxex0dc" path="res://assets/music/03 - menu_game jam test 1.mp3" id="3_67hhc"]
+[ext_resource type="Texture2D" uid="uid://vgam182o5ysb" path="res://assets/tileset/menu_bg.png" id="4_ybdeq"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="7_giq17"]
 
 [node name="MainMenu" type="Control"]
@@ -21,15 +21,13 @@ stream = ExtResource("3_67hhc")
 autoplay = true
 bus = &"Music"
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_gpdyg")
-stretch_mode = 6
+offset_right = 720.0
+offset_bottom = 480.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_ybdeq")
+stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
