@@ -33,12 +33,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "We used to think that dark matter had no interaction with light...."
+text = "Scientists used to think that dark matter could not interact with light...."
 metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "We now know that it hates light and each seeks the other's destruction."
+text = "Turns out it is just allergic."
 metadata/_edit_use_anchors_ = true
 
 [node name="Label5" type="Label" parent="VBoxContainer"]
