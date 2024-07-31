@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
      inputs:
        version:
-         description: 'Version of engine to build e.g. "3.4.4", "3.5"'     
+         description: 'Version of engine to build e.g. "3.4.4", "3.5"'
          required: true
          default: "4.2.2"
          type: string
@@ -12,6 +12,9 @@ on:
          type: string
          default: "stable"
          required: true
+       environment:
+         type: environment
+         description: Select the environment
 env:
   EXPORT_NAME: TestProject2dGodot
   GODOT_VERSION: 4.2.2
@@ -47,6 +50,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
-          ITCH_GAME: test-project-2d-godot
-          ITCH_USER: BenBenB
+          ITCH_GAME: ${{env.ITCH_GAME}}
+          ITCH_USER: ${{env.ITCH_USER}}
           PACKAGE: build/web
