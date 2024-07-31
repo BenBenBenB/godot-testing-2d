@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y4myk5qmqpnq"
-path="res://.godot/imported/player_special_1.png-3ade8aa6c7361ca7f4221443ed58ccd1.ctex"
+uid="uid://6kwr21p2gagc"
+path="res://.godot/imported/sherione_1.png-bc897b83cb7cbdd1e9ab793177c29e70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp/player_special_1.png"
-dest_files=["res://.godot/imported/player_special_1.png-3ade8aa6c7361ca7f4221443ed58ccd1.ctex"]
+source_file="res://assets/temp/sherione_1.png"
+dest_files=["res://.godot/imported/sherione_1.png-bc897b83cb7cbdd1e9ab793177c29e70.ctex"]
 
 [params]
 
