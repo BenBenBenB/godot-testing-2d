@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
      inputs:
        version:
-         description: 'Version of engine to build e.g. "3.4.4", "3.5"'     
+         description: 'Version of engine to build e.g. "3.4.4", "3.5"'
          required: true
          default: "4.2.2"
          type: string
@@ -12,12 +12,16 @@ on:
          type: string
          default: "stable"
          required: true
+       environment:
+         type: environment
+         description: Select the environment
 env:
-  EXPORT_NAME: TestProject2dGodot
+  EXPORT_NAME: GravyGame
   GODOT_VERSION: 4.2.2
 jobs:
   export-web:
     name: Web Export
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-20.04
     container:
       image: barichello/godot-ci:4.2.2
@@ -47,6 +51,6 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
-          ITCH_GAME: test-project-2d-godot
-          ITCH_USER: BenBenB
+          ITCH_GAME: ${{ vars.ITCH_GAME }}
+          ITCH_USER: ${{ vars.ITCH_USER }}
           PACKAGE: build/web
