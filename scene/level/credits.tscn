@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://djdlc0w6jhve8"]
+
+[ext_resource type="Script" path="res://scene/level/credits.gd" id="1_5nt7w"]
+[ext_resource type="AudioStream" uid="uid://hpi8mfv4wygs" path="res://assets/music/05 - victory and credits.mp3" id="2_dlxg2"]
+[ext_resource type="PackedScene" uid="uid://dev35xoudhei" path="res://scene/entity/player_blackhole.tscn" id="2_nhaa8"]
+[ext_resource type="PackedScene" uid="uid://71oepqubn8y0" path="res://scene/entity/edible_developer.tscn" id="3_amus5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usopl"]
+size = Vector2(113, 29.5)
+
+[node name="Credits" type="Node"]
+script = ExtResource("1_5nt7w")
+level_id = -2
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dlxg2")
+bus = &"Music"
+
+[node name="PlayerBlackhole" parent="." instance=ExtResource("2_nhaa8")]
+position = Vector2(262, 229)
+
+[node name="BenB" parent="." instance=ExtResource("3_amus5")]
+position = Vector2(500, 248)
+dev_name = "BenBenB"
+title = "Developer"
+sprite_source = "temp/player_idle_1.png"
+
+[node name="Cratylus" parent="." instance=ExtResource("3_amus5")]
+position = Vector2(415, 103)
+dev_name = "Uncle Wizard"
+title = "Sound Design"
+sprite_source = "temp/player_special_1.png"
+
+[node name="Sheroine" parent="." instance=ExtResource("3_amus5")]
+position = Vector2(264, 73)
+dev_name = "Sheroine"
+title = "Developer/Art"
+sprite_source = "temp/player_duck_1.png"
+
+[node name="Tortex" parent="." instance=ExtResource("3_amus5")]
+position = Vector2(146, 118)
+dev_name = "Tortex"
+title = "Writer"
+sprite_source = "temp/player_dodge_1.png"
+
+[node name="Magicsmoke" parent="." instance=ExtResource("3_amus5")]
+position = Vector2(106, 267)
+dev_name = "MagicSmoke"
+title = "Art"
+sprite_source = "temp/player_dash_1.png"
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 247.0
+offset_top = 279.0
+offset_right = 361.0
+offset_bottom = 310.0
+text = "Back to Menu"
+
+[node name="MenuHitBoxStaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(304, 294)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuHitBoxStaticBody2D"]
+shape = SubResource("RectangleShape2D_usopl")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

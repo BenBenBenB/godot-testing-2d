@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://script/state/game_ui/pause_menu_screen.gd" id="9_t7can"]
 [ext_resource type="Script" path="res://script/state/game_ui/level_loading_screen.gd" id="9_tyg20"]
 [ext_resource type="Script" path="res://script/state/game_ui/victory_screen.gd" id="10_lkmeh"]
-[ext_resource type="Script" path="res://script/state/game_ui/credits_screen.gd" id="12_06y45"]
 [ext_resource type="Script" path="res://script/state/game_ui/settings_screen.gd" id="13_u3mjv"]
 
 [sub_resource type="Resource" id="Resource_vqbcs"]
@@ -40,9 +39,17 @@ level_completed = false
 level_unlocked = false
 level_path = "cutscene/final_victory"
 
+[sub_resource type="Resource" id="Resource_0i2j2"]
+script = ExtResource("2_3thhf")
+level_id = -2
+level_name = "Credits"
+level_completed = false
+level_unlocked = false
+level_path = "level/credits"
+
 [node name="Main" type="Node"]
 script = ExtResource("1_l7ohu")
-available_levels = Array[ExtResource("2_3thhf")]([SubResource("Resource_vqbcs"), SubResource("Resource_nwigl"), SubResource("Resource_hi0wg")])
+available_levels = Array[ExtResource("2_3thhf")]([SubResource("Resource_vqbcs"), SubResource("Resource_nwigl"), SubResource("Resource_hi0wg"), SubResource("Resource_0i2j2")])
 
 [node name="PauseTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -88,9 +95,6 @@ script = ExtResource("9_t7can")
 
 [node name="VictoryScreen" type="Node" parent="StateMachineUI"]
 script = ExtResource("10_lkmeh")
-
-[node name="CreditsScreen" type="Node" parent="StateMachineUI"]
-script = ExtResource("12_06y45")
 
 [node name="SettingsScreen" type="Node" parent="StateMachineUI"]
 script = ExtResource("13_u3mjv")
