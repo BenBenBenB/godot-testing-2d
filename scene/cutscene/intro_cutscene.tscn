@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://brsxr2hr3wanu"]
+
+[ext_resource type="Script" path="res://scene/cutscene/intro_cutscene.gd" id="1_xwwkr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jophf"]
+font_color = Color(0.95864, 0.000793772, 0.965171, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m04ya"]
+font_color = Color(0.863637, 0.824366, 0.0828528, 1)
+
+[node name="IntroCutscene" type="Node"]
+script = ExtResource("1_xwwkr")
+level_id = -3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(323, 180)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 52.0
+offset_top = 36.0
+offset_right = 604.0
+offset_bottom = 302.0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "(intro cutscene placeholder)"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You are a darkmatter experiment gone wrong."
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "We used to think that dark matter had no interaction with light...."
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "We now know that it hates light and each seeks the other's destruction."
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You hunger, for you are...."
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GOO RAVENOUS IN ALLYOING VOLUMES IN YEARNING"
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "or G.R.A.V.Y. for short."
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Move around with WASD"
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Collect Darkness items (purple) to grow"
+label_settings = SubResource("LabelSettings_jophf")
+
+[node name="Label10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Avoid Light items (yellow) or else you will shrink"
+label_settings = SubResource("LabelSettings_m04ya")
+
+[node name="Label11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press almost anything to continue...."

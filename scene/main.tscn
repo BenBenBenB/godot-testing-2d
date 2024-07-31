@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cc62577318f2y"]
+[gd_scene load_steps=20 format=3 uid="uid://cc62577318f2y"]
 
 [ext_resource type="Script" path="res://scene/main.gd" id="1_l7ohu"]
 [ext_resource type="Script" path="res://script/classes/level_data.gd" id="2_3thhf"]
@@ -47,9 +47,17 @@ level_completed = false
 level_unlocked = false
 level_path = "level/credits"
 
+[sub_resource type="Resource" id="Resource_djr15"]
+script = ExtResource("2_3thhf")
+level_id = -3
+level_name = ""
+level_completed = false
+level_unlocked = false
+level_path = "cutscene/intro_cutscene"
+
 [node name="Main" type="Node"]
 script = ExtResource("1_l7ohu")
-available_levels = Array[ExtResource("2_3thhf")]([SubResource("Resource_vqbcs"), SubResource("Resource_nwigl"), SubResource("Resource_hi0wg"), SubResource("Resource_0i2j2")])
+available_levels = Array[ExtResource("2_3thhf")]([SubResource("Resource_vqbcs"), SubResource("Resource_nwigl"), SubResource("Resource_hi0wg"), SubResource("Resource_0i2j2"), SubResource("Resource_djr15")])
 
 [node name="PauseTimer" type="Timer" parent="."]
 wait_time = 0.5

@@ -11,7 +11,7 @@ signal Quit()
 
 func _on_play_button_pressed():
 	sfx_player.play_press_sfx()
-	StartLevel.emit(1)
+	StartLevel.emit(-3)
 
 func _on_settings_button_pressed():
 	sfx_player.play_press_sfx()
