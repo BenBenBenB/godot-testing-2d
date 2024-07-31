@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm72p31hntb2a"]
+[gd_scene load_steps=9 format=3 uid="uid://dm72p31hntb2a"]
 
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_gy3fc"]
 [ext_resource type="Script" path="res://scene/ui/settings.gd" id="2_i0q3i"]
 [ext_resource type="Texture2D" uid="uid://qij8po5yl3e" path="res://assets/tileset/UI sprites.png" id="2_xp3aw"]
+[ext_resource type="Script" path="res://scene/ui/ui_sfx.gd" id="3_purw3"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="4_hrjk1"]
+[ext_resource type="AudioStream" uid="uid://2shwrxmqal22" path="res://assets/music/UI bleep 1.wav" id="4_nkrsc"]
+[ext_resource type="AudioStream" uid="uid://ckefecw1s2wsb" path="res://assets/music/UI bleep 2.wav" id="5_bovdj"]
+[ext_resource type="AudioStream" uid="uid://deyl88slrd3ge" path="res://assets/music/eating sfx.wav" id="6_8k8ci"]
 
 [node name="Settings" type="Control"]
 process_mode = 3
@@ -15,6 +19,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gy3fc")
 script = ExtResource("2_i0q3i")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("3_purw3")
+hover_sfx = Array[AudioStream]([ExtResource("4_nkrsc"), ExtResource("5_bovdj")])
+press_sfx = Array[AudioStream]([ExtResource("6_8k8ci")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -120,3 +130,4 @@ visible = false
 [connection signal="mouse_exited" from="NinePatchRect/VBoxContainer/GridContainer/SfxSlider" to="." method="_on_sfx_slider_mouse_exited"]
 [connection signal="value_changed" from="NinePatchRect/VBoxContainer/GridContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="play_hover" from="NinePatchRect/VBoxContainer/hover particle" to="sfx" method="play_hover_sfx"]

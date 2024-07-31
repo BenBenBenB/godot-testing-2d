@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ht5y7fx1fdck"]
+[gd_scene load_steps=10 format=3 uid="uid://ht5y7fx1fdck"]
 
 [ext_resource type="Theme" uid="uid://nd2u72aiasw8" path="res://resource/UI_theme.tres" id="1_hfdxg"]
 [ext_resource type="Script" path="res://scene/ui/death_menu.gd" id="2_lxl4x"]
+[ext_resource type="AudioStream" uid="uid://b2yhtxeygahky" path="res://assets/music/death screen final.wav" id="3_bek8p"]
 [ext_resource type="PackedScene" uid="uid://cg2matkx410x5" path="res://scene/ui/hover_particle.tscn" id="3_bi2ty"]
+[ext_resource type="Script" path="res://scene/ui/ui_sfx.gd" id="4_obmuo"]
+[ext_resource type="AudioStream" uid="uid://2shwrxmqal22" path="res://assets/music/UI bleep 1.wav" id="5_7hrxj"]
+[ext_resource type="AudioStream" uid="uid://ckefecw1s2wsb" path="res://assets/music/UI bleep 2.wav" id="6_1xkbl"]
+[ext_resource type="AudioStream" uid="uid://deyl88slrd3ge" path="res://assets/music/eating sfx.wav" id="7_ldop4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_207a1"]
 font_size = 60
@@ -22,6 +27,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hfdxg")
 script = ExtResource("2_lxl4x")
+
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bek8p")
+bus = &"Music"
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("4_obmuo")
+hover_sfx = Array[AudioStream]([ExtResource("5_7hrxj"), ExtResource("6_1xkbl")])
+press_sfx = Array[AudioStream]([ExtResource("7_ldop4")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -88,3 +103,4 @@ visible = false
 [connection signal="focus_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
 [connection signal="mouse_exited" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_button_focus_exited"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="play_hover" from="ColorRect/HBoxContainer/hover particle" to="sfx" method="play_hover_sfx"]

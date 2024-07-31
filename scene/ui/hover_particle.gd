@@ -1,6 +1,8 @@
 extends AnimatedSprite2D
 var button_list : Array
 
+signal play_hover
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	button_list = get_node("..").find_children("*utton","Button")
@@ -22,6 +24,7 @@ func _on_button_focus_entered(index):
 		#hover_particle.position = button.position
 		visible = true
 		play("default")
+		play_hover.emit()
 		
 func _on_button_focus_exited():
 		visible = false
