@@ -8,6 +8,7 @@
 
 [node name="FinalVictory" type="Node"]
 script = ExtResource("1_n6lg4")
+level_id = -1
 
 [node name="VictoryTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lveli")

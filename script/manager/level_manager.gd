@@ -16,7 +16,6 @@ func unpause_level() -> void:
 func restart_level() -> void:
 	if is_instance_valid(loaded_level):
 		var level_id: int = loaded_level.level_id
-		loaded_level.queue_free()
 		load_level(level_id)
 	
 # unload current level and load next level.

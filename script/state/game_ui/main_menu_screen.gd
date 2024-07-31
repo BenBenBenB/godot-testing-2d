@@ -2,6 +2,8 @@ extends State
 class_name MainMenuScreen
 # can start level, go to settings, go to credits, quit game
 
+@onready var state_machine_ui = $".."
+
 @onready var main_menu: MainMenu = $"../../UIMain/MainMenu"
 @onready var pause_menu: PauseMenu = $"../../UIMain/PauseMenu"
 # import settings, credits once created
@@ -17,7 +19,7 @@ func _ready():
 	main_menu.Quit.connect(exit_game)
 
 func enter():
-	LevelManager.unload_level()
+	state_machine_ui.load_level(0)
 	main_menu.activate()
 
 func exit_game():
@@ -33,5 +35,4 @@ func show_credits():
 
 func start_game(level_id: int):
 	main_menu.deactivate()
-	LevelManager.load_level(level_id)
-	Transitioned.emit(level_active_screen)
+	state_machine_ui.load_level(level_id)

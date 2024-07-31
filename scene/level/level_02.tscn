@@ -58,6 +58,7 @@ sources/0 = SubResource("TileSetAtlasSource_1eiqf")
 
 [node name="Level2" type="Node"]
 script = ExtResource("1_4pp7r")
+level_id = 2
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_iqnhy")
